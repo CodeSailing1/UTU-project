@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register-login.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" id="signUpForm">
+        <legend>Sign Up</legend>
+        <label for="name">Name
+            <input type="text" name="name" id="name" required>
+            <span id="error"></span>
+        </label>
+        <label for="lastName">Last Name
+            <input type="text" name="lastName" id="lastName" required>
+            <span id="error"></span>
+        </label>
+        <label for="email">eMail
+            <input type="email" name="email" id="email" required>
+            <span id="error"></span>
+        </label>
+        <label for="psw">Password
+            <input type="password" name="password" id="password" required>
+            <span id="error"></span>
+        </label>
+        <!---
+        <label for="date">Date of birth
+            <input type="date" name="date" id="date">
+        </label>
+        <fieldset>
+            <legend>Genre</legend>
+            <label for="man">
+                <input type="radio" name="genre" id="man">
+            </label>
+            <label for="women">
+                <input type="radio" name="genre" id="women">
+            </label>
+            <label for="they">
+                <input type="radio" name="genre" id="they">
+            </label>
+        </fieldset>
+        -->
+        <label for="signUp">
+            <input type="submit" value="Sign Up" id="signUp">
+        </label>
+        <button type="button" value="Sign In" id="singIn"></button>
+    </form>
+    <script src="./scripts/validator.js"></script>
+</body>
+</html>
