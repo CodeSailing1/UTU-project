@@ -9,23 +9,31 @@
 <body>
     <form action="" method="post" id="signUpForm">
         <legend>Sign Up</legend>
-        <label for="name">Name
-            <input type="text" name="name" id="name" required>
-            <span id="error"></span>
-        </label>
-        <label for="lastName">Last Name
-            <input type="text" name="lastName" id="lastName" required>
-            <span id="error"></span>
-        </label>
+            <article>
+                <div>
+                    <p>Name</p>
+                    <label for="name">
+                        <input type="text" name="name" id="name" required>
+                        <span id="error"></span>
+                    </label>
+                </div>
+                <div>
+                    <p>Last Name</p>
+                    <label for="lastName">
+                        <input type="text" name="lastName" id="lastName" required>
+                        <span id="error"></span>
+                    </label>
+                </div>
+            </article>
         <label for="email">eMail
             <input type="email" name="email" id="email" required>
             <span id="error"></span>
         </label>
-        <label for="psw">Password
+        <label for="password">Password
             <input type="password" name="password" id="password" required>
             <span id="error"></span>
         </label>
-        <!---
+        
         <label for="date">Date of birth
             <input type="date" name="date" id="date">
         </label>
@@ -41,11 +49,15 @@
                 <input type="radio" name="genre" id="they">
             </label>
         </fieldset>
-        -->
-        <label for="signUp">
-            <input type="submit" value="Sign Up" id="signUp">
-        </label>
-        <button type="button" value="Sign In" id="singIn"></button>
+        <article id="btns">
+            <label for="signUp">
+                <input type="submit" value="Sign Up" id="signUp">
+            </label>
+            <div id="separator"></div>
+            <label>
+                <input type="button" value="Sign in" id="singIn">
+            </label>
+        </article> 
     </form>
     <script src="./scripts/validator.js"></script>
 </body>

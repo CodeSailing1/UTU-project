@@ -1,1 +1,54 @@
-*{margin: 0; padding: 0; color: black;}
+*{margin: 0; padding: 0; color: #fff;}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: black;
+    width: auto;
+    height: auto;
+    padding: 2%;
+    border-radius: 8px;
+}
+input{
+    border: 0;
+    border-radius: 8px;
+    margin-block: 3%;
+    padding: 5px;
+    color: black;
+}
+label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+article, fieldset{
+    width: 100%;
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+article div{
+    width:fit-content;
+}
+fieldset{
+    border: 0;
+}
+#separator{
+    height: 30px;
+    width: 3px;
+    background-color: white;
+    margin: 4px;
+}
+#btns label input{
+    margin-left: 10px;
+    width: 90%;
+}
