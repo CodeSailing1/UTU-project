@@ -13,11 +13,11 @@ form {
     align-items: start;
     background-color: black;
     width: auto;
-    height: auto;
+    height: fit-content;
     padding: 2%;
     border-radius: 8px;
 }
-input{
+input, select{
     border: 0;
     border-radius: 8px;
     margin-block: 3%;
@@ -34,12 +34,14 @@ article, fieldset{
     width: 100%;
     margin-right: 10px;
     display: flex;
+    gap: 10px;
     justify-content: space-between;
+    border: 0;
 }
 article div{
-    width:fit-content;
+    width: 100%;
 }
-fieldset{
+select{
     border: 0;
 }
 #separator{
@@ -48,7 +50,4 @@ fieldset{
     background-color: white;
     margin: 4px;
 }
-#btns label input{
-    margin-left: 10px;
-    width: 90%;
-}
+

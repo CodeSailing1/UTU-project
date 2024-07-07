@@ -33,25 +33,28 @@
             <input type="password" name="password" id="password" required>
             <span id="error"></span>
         </label>
-        
-        <label for="date">Date of birth
-            <input type="date" name="date" id="date">
-        </label>
         <fieldset>
-            <legend>Genre</legend>
-            <label for="man">
-                <input type="radio" name="genre" id="man">
+            <label for="day">Day
+                <input type="number" name="day" id="day">
             </label>
-            <label for="women">
-                <input type="radio" name="genre" id="women">
+            <label for="month">Month
+                <input type="number" name="month" id="month">
             </label>
-            <label for="they">
-                <input type="radio" name="genre" id="they">
+            <label for="year">Year
+                <input type="number" name="year" id="year">
             </label>
         </fieldset>
+        <label for="select">Gender
+            <select name="select" id="selectGenres" required>
+                <option value="gender" selected>--</option>
+                <option value="gender">Man</option>
+                <option value="gender">Woman</option>
+                <option value="gender">They</option>
+            </select>
+        </label>
         <article id="btns">
             <label for="signUp">
-                <input type="submit" value="Sign Up" id="signUp">
+                <input type="submit" value="Sign Up" id="signUp" disabled>
             </label>
             <div id="separator"></div>
             <label>
