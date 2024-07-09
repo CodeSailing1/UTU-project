@@ -1,0 +1,11 @@
+{"mobilePhones":[
+    {"name": "celu1", "image": "url(./images/...", "id": "00", "stock": "true", "url": "./...html/"},
+    {"name": "celu2", "image": "url(./images/...", "id": "01", "stock": "false", "url": "./...html/"},
+    {"name": "celu3", "image": "url(./images/...", "id": "02", "stock": "true", "url": "./...html/"}
+],
+"tablets":[
+    {"name": "tablet1", "image": "url(./images/...", "id": "00", "stock": "true"},
+    {"name": "tablet2", "image": "url(./images/...", "id": "01", "stock": "true"},
+    {"name": "tablet3", "image": "url(./images/...", "id": "02", "stock": "false"}
+
+]}
