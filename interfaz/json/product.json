@@ -1,11 +1,45 @@
-{"mobilePhones":[
-    {"name": "celu1", "image": "url(./images/...", "id": "00", "stock": "true", "url": "./...html/"},
-    {"name": "celu2", "image": "url(./images/...", "id": "01", "stock": "false", "url": "./...html/"},
-    {"name": "celu3", "image": "url(./images/...", "id": "02", "stock": "true", "url": "./...html/"}
-],
-"tablets":[
-    {"name": "tablet1", "image": "url(./images/...", "id": "00", "stock": "true"},
-    {"name": "tablet2", "image": "url(./images/...", "id": "01", "stock": "true"},
-    {"name": "tablet3", "image": "url(./images/...", "id": "02", "stock": "false"}
-
-]}
+{
+    "company": "codesailing",
+    "products":[
+        {
+            "mobilePhones": [
+                {
+                    "name": "celu1", 
+                    "id": "a", 
+                    "url": "#",
+                    "price": 500
+                },
+                {
+                    "name": "celu2", 
+                    "id": "b", 
+                    "url": "#",
+                    "price": 500
+                },
+                {
+                    "name": "celu3", 
+                    "id": "c", 
+                    "url": "#",
+                    "price": 500
+                },
+                {
+                    "name": "celu4", 
+                    "id": "d", 
+                    "url": "#",
+                    "price": 500
+                },
+                {
+                    "name": "celu5", 
+                    "id": "e", 
+                    "url": "#",
+                    "price": 500
+                },
+                {
+                    "name": "celu6", 
+                    "id": "f", 
+                    "url": "#",
+                    "price": 500
+                }
+            ]
+        }
+    ]
+}
