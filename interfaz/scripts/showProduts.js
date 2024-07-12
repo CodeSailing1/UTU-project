@@ -1,13 +1,19 @@
-fetch("./json/product.json",{
-    method: "GET"
-})
-    .then(product =>{
-        return product.json();
-    })
-    .then(data =>{
-        data.forEach(mobilePhones =>{
+fetch("./json/product.json")
+    .then(response => response.json())
+    .then(data => {
+        const mobilePhones = data.products[0].mobilePhones;
+        for (let i = 0; i < mobilePhones.length; i++) {
+            const product = mobilePhones[i];
             const markup = `
-                <li class="product"><a class="products-fetched" href="${mobilePhones.url}" target="_blank"><img src="${mobilePhones.img}">hola</a></li>`;
-            document.getElementById(`carrito-list`).innerHTML(`beforeend`, markup)
-        })
+            <article class="product-card" id="${product.id}">
+                <a class="product-name" href="${product.url}" target="_blank">
+                    ${product.name}
+                </a>
+                <span class="product-price">${product.price}</span>
+                <button class="product-btn" type="button">Add</button>
+            </article>
+            `;
+            document.getElementById("products").insertAdjacentHTML("beforeend", markup);
+            console.log(markup);
+        }
     })
