@@ -10,19 +10,17 @@
     <header>
         <nav>
             <ul>
-                <li><img src="#" alt="#"></li>
+                <li><img src="#" alt="#" class="logo"></li>
                 <li>Categories</li>
                 <li><input type="search" name="" id=""></li>
             </ul>
             <ul>
-                <li><button>register</button></li>
-                <li><button>login</button></li>
-                <li>
-                    <button><img src="#" alt="">carritoCompras</button>
-                    <div id="carritoCompras">
-                        <ul id="carrito-list">
-
-                        </ul>
+                <li><button><a href="./register.html">register</a></button></li>
+                <li><button><a href="./login.html">login</a></button></li>
+                <li class="dropdown">
+                    <button class="dropbtn"><a href="./shoppingCart.html">cart</a></button>
+                    <div class="dropdown-content">
+                        <ul id="cart"></ul>
                     </div>
                 </li>
                 <li><button><img src="#" alt=""></button></li>
@@ -30,24 +28,28 @@
         </nav>
     </header>
     <main>
-        <section class="carrousel-container">
-            <button class="carrousel-back">atra</button>
-            <article class="carrousel">
-                <img src="#" alt="#" class="carrousel-image">
-                <img src="#" alt="#" class="carrousel-image">
-                <img src="#" alt="#" class="carrousel-image">
-            </article>
-            <button class="carrousel-forward">adelante</button>
-        </section>
-        <section>
-                
+        <div class="carrousel-container">
+            <button id="prevBtn">Anterior</button>
+            <div class="carrousel-slide">
+                <img src="#" alt="Imagen 1" class="carrousel-image">
+                <img src="#" alt="Imagen 2" class="carrousel-image">
+                <img src="#" alt="Imagen 3" class="carrousel-image">
+            </div>
+            <button id="nextBtn">Siguiente</button>
+        </div>
+        <h2>Ofertas</h2>
+        <section id="discounts">
+            <div>Arrow</div>
+            <div id="products">
+
+            </div>
+            <div>Arrow</div>
         </section>
     </main>
     <footer>
-                
+
     </footer>
-    <script src="./scripts/carrousel.js"></script>
-    <script src="./scripts/carritoCompras.js"></script>
     <script src="./scripts/showProduts.js"></script>
+    <script src="./scripts/shoppingCart.js"></script>
 </body>
 </html>

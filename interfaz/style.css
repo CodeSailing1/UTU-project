@@ -1,10 +1,10 @@
-*{margin: 0; padding: 0; color: black;}
+*{margin: 0; padding: 0;}
 body{
     margin: 2%;
 }
 header{
     border-radius: 8px;
-    background-color: black;
+    background-color: rgb(255, 238, 0);
 }
 nav,
 ul,
@@ -14,10 +14,12 @@ ul,
 nav{
     justify-content: space-between;
     align-items: center;
-    padding: 2%;
+    padding: 2px;
 }
 ul{
     list-style: none;
+    color: white;
+    align-items: center;
 }
 li{
     margin-inline: 10px;
@@ -29,8 +31,55 @@ li>img{
     border-radius: 8px;
 }
 .carrousel-container{
+    background-color: black;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    border-radius: 8px;
+    margin-block: 2%;
+}
+.carrousel{
+    overflow: hidden;
+    position: relative;
+}
+.carrousel-image{
+    height: 200px;
+    position: relative;
+    object-fit: cover;
+}
+
+#discounts,
+#products{
+    display: flex;
+    gap: 4px;
+}
+
+.product-card{
+    color: white;
+    background-color: black;
+    padding: 50px;
+    border-radius: 8px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    transform: translate(-125px);
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content ul {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content ul:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.logo{
+    height: 70px;
 }
