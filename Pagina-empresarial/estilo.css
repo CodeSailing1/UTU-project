@@ -1,0 +1,94 @@
+body, html {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+#header {
+    background-color: rgb(68, 54, 54);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+.container {
+    width: 86%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.logo-img {
+    width: 50px; 
+    height: auto;
+    margin-right: 10px;
+}
+.logo-text {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+.main-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+.main-nav ul li {
+    margin-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main-nav li a {
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+nav a:hover {
+    background-color: #31232b;
+}
+.banner {
+    background-image: url(banner.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 35px;
+}
+.banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.visiones-section,
+.proyectos-section,
+.about-section,
+.contacto-section {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.visiones-section p,
+.proyectos-section p,
+.about-section p,
+.contacto-section p {
+    max-width: 1200px;
+}
+.visiones-section {
+    background-color: rgb(122, 122, 230);
+}
+.proyectos-section {
+    background-color: rgb(135, 230, 122);
+}
+.about-section {
+    background-color: rgb(230, 122, 122);
+}
+.contacto-section {
+    background-color: rgb(230, 230, 122);
+}
