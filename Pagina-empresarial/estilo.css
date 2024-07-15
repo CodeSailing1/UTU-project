@@ -92,3 +92,45 @@ nav a:hover {
 .contacto-section {
     background-color: rgb(230, 230, 122);
 }
+.persona {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.persona img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.persona p {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.social-footer {
+    background-color: rgb(68, 54, 54);
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+}
+.social-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social-footer .footer-left p {
+    margin: 0;
+}
+.social-footer .footer-right {
+    display: flex;
+    align-items: center;
+}
+.social-footer .footer-right a {
+    margin: 0 5px;
+}
+.social-footer img {
+    width: 30px;
+    height: 30px;
+    transition: opacity 0.3s ease;
+}
+.social-footer img:hover {
+    opacity: 0.7;
+}
