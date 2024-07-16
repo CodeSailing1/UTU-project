@@ -12,12 +12,34 @@ body, html {
     left: 0;
     z-index: 1000;
 }
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}   
+section{
+    animation: bye linear;
+    animation-timeline: view();
+    animation-range: exit -1px;
+}
 .container {
     width: 86%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+}
+.container p {
+    flex: 1;
+    margin: 10px;
+    line-height: 1.6;
+    text-align: justify;
+    min-width: 250px;
+}
+@keyframes bye{
+    to{opacity: 0;}
 }
 .logo {
     display: flex;
@@ -86,20 +108,35 @@ nav a:hover {
 .proyectos-section {
     background-color: rgb(135, 230, 122);
 }
-.about-section {
+#about {
     background-color: rgb(230, 122, 122);
 }
 .contacto-section {
     background-color: rgb(230, 230, 122);
 }
-.persona {
-    text-align: center;
-    margin-bottom: 20px;
+.proyecto img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+.about-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.persona>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 500px;
+    height: 500px;
 }
 .persona img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
+    border-radius: 50%;
 }
 .persona p {
     max-width: 80%;
@@ -133,4 +170,25 @@ nav a:hover {
 }
 .social-footer img:hover {
     opacity: 0.7;
+}
+.container-visionMision>h1{
+    font-size: 2rem;
+}
+.container-visionMision{
+    margin: 10%;
+    width: 25%;
+    float: left;
+    color: #fff;
+}
+h2{
+    margin: 0;
+    padding-block: 2%;
+    text-align: center;
+}
+form{
+    flex-direction: column;
+}
+form>input, form>textarea{
+    width: 20%;
+    margin: 10px;
 }
