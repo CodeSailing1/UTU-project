@@ -1,0 +1,22 @@
+version: "0.0"
+services:
+  web-app:
+    depends_on:
+      - db
+    image: httpd:2.4
+    ports:
+      - "8080:80"
+    configs:
+      - httpd-config
+    env_file:
+      - webApp.env
+  db:
+    image: mysql
+    volumes:
+      - .example
+    restart: always
+    env_file:
+      - db.env
+configs:
+  httpd-config:
+    external: true
