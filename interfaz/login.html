@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="" method="post" id="logInForm">
+        <legend>Log In</legend>
+        <label for="email">eMail
+            <input type="email" name="email" id="email" minlength="2" maxlength="50" required>
+            <span id="error"></span>
+        </label>
+        <label for="password">Password
+            <input type="password" name="password" id="password" minlength="8" maxlength="50" required>
+            <span id="error"></span>
+        </label>
+        <article id="btns">
+            <label>
+                <input type="submit" value="Sign in" id="submit" formaction="./index.html"disabled>
+            </label>
+            <div id="separator"></div>
+            <label for="signUp">
+                <a href="./register.html" id="signUp">Sign Up</a>
+            </label>
+            
+        </article> 
+    </form>
+    <script src="./scripts/validator.js"></script>
 </body>
 </html>

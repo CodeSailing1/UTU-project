@@ -11,7 +11,23 @@
         <nav>
             <ul>
                 <li><img src="./img/Claptransparente.png" alt="#" class="logo"></li>
-                <li>Categories</li>
+                <li class="dropdown">Categories
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>Sales</li>
+                            <li>Books</li>
+                            <li>Music</li>
+                            <li>Mobile Phones</li>
+                            <li>Clothes</li>
+                            <li>Furniture</li>
+                            <li>Sports</li>
+                            <li>Jewerly</li>
+                            <li>Helth and care</li>
+                            <li>Tools</li>
+                            <li>Videogames and consoles</li>
+                        </ul>
+                    </div>
+                </li>
                 <li id="search-bar"><label for="search"></label><input type="search" name="search" id="search"><img src="./img/svgs/search.svg" alt=""></li>
             </ul>
             <ul>
@@ -22,7 +38,7 @@
                         <ul id="cart"></ul>
                     </div>
                 </li>
-                <li><img src="./img/svgs/help.svg" alt=""><a href="./help.html"></a></img></li>
+                <li><img src="./img/svgs/help.svg" alt="Help icon"><a href="./help.html"></a></img></li>
                 <li><button id="register-button"><a href="./register.html">register</a></button></li>
                 <li><button id="login-button"><a href="./login.html">login</a></button></li>
             </ul>
@@ -32,10 +48,9 @@
     <main>
         <div class="carrousel-container" id="promotions">
             <button id="prevBtn">Previous</button>
-            <div class="carrousel-slide">
-                <img src="./img/Claptransparente.png" alt="Imagen 1" class="carrousel-image">
+            <div id="imagen" class="carrousel-slide" >
             </div>
-            <button id="nextBtn">Following</button>
+            <button id="nextBtn">Next</button>
         </div>
         <h2>Discounts</h2>
         <section id="discounts">
@@ -52,18 +67,16 @@
         </section>
         <h2>Popular categories</h2>
         <section id="popular-categories">
-            <article>Libros</article>
-            <article>Música</article>
-            <article>Celulares</article>
-            <article>Ropa y Moda</article>
-            <article>Muebles y Hogar</article>
-            <article>Deportes</article>
-            <article>Accesorios</article>
-            <article>Salud y Belleza</article>
-            <article>Electrodomésticos</article>   
-            <article>Películas</article>
-            <article>Herramientas</article>
-            <article>Consolas y Videojuegos</article>
+            <article><img src="./img/11-mitos-electrodomesticos-hora-dejes-creerte-2157733.png" alt=""></article>
+            <article><img src="./img/1366_2000.png" alt=""></article>
+            <article><img src="./img/13934903_1648619525452720_2900498051237894535_n.png" alt=""></article>
+            <article><img src="./img/6a94926d20190a841f93b405eef7414a.png" alt=""></article>
+            <article><img src="./img/depositphotos_241907032-stock-photo-top-view-watches-lipstick-earrings.png" alt=""></article>
+            <article><img src="./img/herramientas-manuales-basicas-02-2022-07.png" alt=""></article>
+            <article><img src="./img/Jm3lXndQW_2000x1500__1.png" alt=""></article>
+            <article><img src="./img/Musique-2.png" alt=""></article>
+            <article><img src="./img/png-mobile-phone-png-icns-more-512.webp" alt=""></article>   
+            <article><img src="./img/Z5CCK4LQ44JIM6BWFUMIPN2SZI.png" alt=""></article>
         </section>
     </main>
     <footer>
@@ -81,6 +94,7 @@
             </ul>
         </div>
     </footer>
+    <script src="./scripts/carrousel.js"></script>
     <script src="./scripts/showProduts.js"></script>
     <script src="./scripts/shoppingCart.js"></script>
 </body>
