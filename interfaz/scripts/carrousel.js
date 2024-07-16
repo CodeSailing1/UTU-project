@@ -1,9 +1,40 @@
-let cuantity = 0;
-const image = document.getElementsByClassName("carrousel-image");
-const carrouselContainer = document.querySelector("article carrousel-container");
-const carrousel = document.querySelector("carrousel");
-const buttonBackwards = document.getElementsByClassName("carrousel-back");
-const buttonForward = document.getElementsByClassName("carrousel-forward");
+const img = document.getElementById("imagen");
+const backward = document.getElementById("prevBtn");
+const forward = document.getElementById("nextBtn");
 
-for(let i = 0; i<image.length; i++){cuantity++}
-console.log(cuantity);
+const images = [
+    `./img/luca-micheli-ruWkmt3nU58-unsplash.webp`,
+    `./img/Claptransparente.png`,
+    `./img/png-mobile-phone-png-icns-more-512.webp`
+];
+let position = 0;
+
+function nextPhoto() {
+    if(position >= images.length - 1) {
+        position = 0;
+    } else {
+        position++;
+    }
+    render();
+}
+
+function lastPhoto() {
+    if(position <= 0) {
+        position = images.length - 1;
+    } else {
+        position--;
+    }
+    render();
+}
+
+function render () {
+    const muckup = `
+        <img src="${images[position]}" class="carrousel-image" alt="Carrousel Image"></img>
+    `;
+    img.innerHTML = muckup;
+}
+
+render();
+forward.addEventListener("click", nextPhoto);
+backward.addEventListener("click", lastPhoto);
+
