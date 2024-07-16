@@ -4,50 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Clap</title>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><img src="#" alt="#" class="logo"></li>
+                <li><img src="./img/Claptransparente.png" alt="#" class="logo"></li>
                 <li>Categories</li>
-                <li><input type="search" name="" id=""></li>
+                <li id="search-bar"><label for="search"></label><input type="search" name="search" id="search"><img src="./img/svgs/search.svg" alt=""></li>
             </ul>
             <ul>
-                <li><button><a href="./register.html">register</a></button></li>
-                <li><button><a href="./login.html">login</a></button></li>
+
                 <li class="dropdown">
-                    <button class="dropbtn"><a href="./shoppingCart.html">cart</a></button>
+                    <img src="./img/svgs/shopping-cart.svg"><a href="./shoppingCart.html" class="dropbtn"></a></img>
                     <div class="dropdown-content">
                         <ul id="cart"></ul>
                     </div>
                 </li>
-                <li><button><img src="#" alt=""></button></li>
+                <li><img src="./img/svgs/help.svg" alt=""><a href="./help.html"></a></img></li>
+                <li><button id="register-button"><a href="./register.html">register</a></button></li>
+                <li><button id="login-button"><a href="./login.html">login</a></button></li>
             </ul>
         </nav>
     </header>
+    <div id="separator"></div>
     <main>
-        <div class="carrousel-container">
-            <button id="prevBtn">Anterior</button>
+        <div class="carrousel-container" id="promotions">
+            <button id="prevBtn">Previous</button>
             <div class="carrousel-slide">
-                <img src="#" alt="Imagen 1" class="carrousel-image">
-                <img src="#" alt="Imagen 2" class="carrousel-image">
-                <img src="#" alt="Imagen 3" class="carrousel-image">
+                <img src="./img/Claptransparente.png" alt="Imagen 1" class="carrousel-image">
             </div>
-            <button id="nextBtn">Siguiente</button>
+            <button id="nextBtn">Following</button>
         </div>
-        <h2>Ofertas</h2>
+        <h2>Discounts</h2>
         <section id="discounts">
-            <div>Arrow</div>
-            <div id="products">
+            <article id="products" class="products-container">
 
-            </div>
-            <div>Arrow</div>
+            </article>
+
+        </section>
+        <h2>Top-sellers</h2>
+        <section id="top-sellers">
+            <article id="products-1" class="products-container">
+
+            </article>
+        </section>
+        <h2>Popular categories</h2>
+        <section id="popular-categories">
+            <article>Libros</article>
+            <article>Música</article>
+            <article>Celulares</article>
+            <article>Ropa y Moda</article>
+            <article>Muebles y Hogar</article>
+            <article>Deportes</article>
+            <article>Accesorios</article>
+            <article>Salud y Belleza</article>
+            <article>Electrodomésticos</article>   
+            <article>Películas</article>
+            <article>Herramientas</article>
+            <article>Consolas y Videojuegos</article>
         </section>
     </main>
     <footer>
-
+        <div>
+            <ul>
+                <li><img src="./img/svgs/brand-x.svg" alt=""><a href=""></a></img></li>
+                <li><img src="./img/svgs/brand-youtube.svg" alt=""><a href=""></a></img></li>
+                <li><img src="./img/svgs/brand-facebook.svg" alt=""><a href=""></a></img></li>
+                <li><img src="./img/svgs/brand-instagram.svg" alt=""><a href=""></a></img></li>
+            </ul>
+            <ul>
+                <li><a href="#" target="_blank">Term of service and use</a></li>
+                <li><a href="#" target="_blank">How we take care of your privacity</a></li>
+                <li><a href="#" target="_blank">Contact</a></li>
+            </ul>
+        </div>
     </footer>
     <script src="./scripts/showProduts.js"></script>
     <script src="./scripts/shoppingCart.js"></script>

@@ -4,40 +4,53 @@
         {
             "mobilePhones": [
                 {
-                    "name": "celu1", 
-                    "id": "a", 
+                    "name": "celu1",
+                    "id": "a",
                     "url": "#",
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
                     "price": 500
                 },
                 {
-                    "name": "celu2", 
-                    "id": "b", 
+                    "name": "celu2",
+                    "id": "b",
                     "url": "#",
-                    "price": 500
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 1500
                 },
                 {
-                    "name": "celu3", 
-                    "id": "c", 
+                    "name": "celu3",
+                    "id": "c",
                     "url": "#",
-                    "price": 500
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 2000
                 },
                 {
-                    "name": "celu4", 
-                    "id": "d", 
+                    "name": "celu4",
+                    "id": "d",
                     "url": "#",
-                    "price": 500
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 8500
                 },
                 {
-                    "name": "celu5", 
-                    "id": "e", 
+                    "name": "celu5",
+                    "id": "e",
                     "url": "#",
-                    "price": 500
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 10000
                 },
                 {
-                    "name": "celu6", 
-                    "id": "f", 
+                    "name": "celu6",
+                    "id": "f",
                     "url": "#",
-                    "price": 500
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 700
+                },
+                {
+                    "name": "celu7",
+                    "id": "g",
+                    "url": "#",
+                    "img": "./img/png-mobile-phone-png-icns-more-512.webp",
+                    "price": 1000
                 }
             ]
         }
