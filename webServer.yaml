@@ -1,0 +1,34 @@
+- hosts: webserver
+  become: yes
+  tasks:
+    - name: Install apache server
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Start and enable apache server
+      service:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: open firewall port
+      firewalld:
+        service: http
+        immediate: true
+        permanent: true
+        state: enabled
+
+- hosts: dbservers
+  become: yes
+  tasks:
+    - name: install mysql server
+      yum:
+        name: mysql-server
+        state: latest
+
+    - name: enable and start mysql server
+      service:
+        name: mysql
+        enabled: yes
+        state: started
