@@ -16,15 +16,21 @@ const tFs = {
     month: false,
     year: false
 }
+const tFsLogIn = {
+    email: false,
+    password:false
+}
 
 const signUpForm = document.getElementById("signUpForm");
 const inputSignUp = document.querySelectorAll("#signUpForm input");
-const submit = document.getElementById("signUp");
+const submit = document.getElementById("submit");
+console.log(submit);
 
 inputSignUp.forEach(input => {
     input.addEventListener("input", (e) => {
         let validation = validationInputs(requeriments[e.target.name], e.target.value, e.target.id);
         submitValidation(validation);
+        submitValidationLogin(validation);
     }); 
 })
 
@@ -36,11 +42,14 @@ function validationInputs(requeriment, input, idInput) {
             element.classList.add("valid");
             element.classList.remove("invalid");
             tFs[idInput] = true;
+            tFsLogIn[idInput] = true;
                 
         } else{
             element.classList.add("invalid");
             element.classList.remove("valid");
             tFs[idInput] = false;
+            tFsLogIn[idInput] = false;
+
             throw new Error("Ingresa valores validos");
         }
         return true;
@@ -56,6 +65,13 @@ function submitValidation() {
     let allElementsValid = true;
     for(let input in tFs){
         (!tFs[input]) ? allElementsValid = false : allElementsValid = true;
+    }
+        (allElementsValid) ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "");
+}
+function submitValidationLogin() {
+    let allElementsValid = true;
+    for(let input in tFsLogIn){
+        (!tFsLogIn[input]) ? allElementsValid = false : allElementsValid = true;
     }
         (allElementsValid) ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "");
 }
