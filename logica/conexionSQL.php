@@ -9,7 +9,7 @@
 <?php
 $server = "localhost";
 $user = "root";
-$pass = "password";
+$pass = "";
 $db = "conexion";
 $conectar = new mysqli($server, $user, $pass, $db);
 if($conectar->connect_errno){
