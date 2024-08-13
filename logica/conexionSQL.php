@@ -11,9 +11,9 @@ $server = "localhost";
 $user = "root";
 $pass = "password";
 $db = "conexion"
-$conexion = new mysqli($server, $user, $pass, $db);
-if($conexion->connect_errno){
-    die("Conexion Fallida" . $conexion->connect_errno);
+$conectar = new mysqli($server, $user, $pass, $db);
+if($conectar->connect_errno){
+    die("Conexion Fallida" . $conectar->connect_errno);
 }else{
     echo "Conectado";
 }
