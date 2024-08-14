@@ -121,8 +121,9 @@ main{
 }
 .products-container{
     display: flex;
+    flex-direction: column;
     overflow:auto;
-    gap: 30px;
+    gap: 20px;
     margin-block: 2%;
     padding-block: 1%;
     padding-inline: 1%;
@@ -142,8 +143,10 @@ main{
 }
 .product-card>a img{
     object-fit: cover;
-    width: 100%;
+    width: 50%;
     height: auto;
+    max-width: 300px;
+    max-height: 200px;
 }
 .product-cart>img{
     object-fit: cover;
