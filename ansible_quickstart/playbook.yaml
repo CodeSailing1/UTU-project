@@ -1,0 +1,14 @@
+- name: My first play
+  hosts: myhosts
+  become: true
+  tasks:
+    - name: update server
+      ansible.builtin.yum:
+        name: '*'
+        state: latest
+        update_only: true
+    - name: install httpd
+      package:
+        name: httpd
+        state: latest
+        
