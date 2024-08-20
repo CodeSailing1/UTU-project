@@ -11,4 +11,8 @@
       package:
         name: httpd
         state: latest
+    - name: start httpd
+      ansible.builtin.service:
+        name: httpd
+        state: starte
         
