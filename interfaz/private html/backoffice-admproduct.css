@@ -103,44 +103,12 @@ li>button{
     border: 10px var(--accent-color) solid;
 
 }
-#register-button,
-#login-button{
-    padding: var(--padding);
-    border: 8px var(--accent-color) solid;
-}
+
 main{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.products-container{
-    display: flex;
-    overflow:auto;
-    gap: 30px;
-    margin-block: 2%;
-    padding-block: 1%;
-    padding-inline: 1%;
-    animation: fade-out linear;
-    animation-timeline: view();
-    animation-range: exit -50px;
-}
-
-.product-card{
-    display: flex;
-    flex-direction: column;
-    color: var(--secondary-text);
-    background-color: var(--accent-color);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: black 2px 2px 8px ;
-    transition: all 0.2s ease-in-out ;
-}
-.product-card>a img{
-    object-fit: cover;
-    width: 100%;
-    height: auto;
 }
 
 footer{
