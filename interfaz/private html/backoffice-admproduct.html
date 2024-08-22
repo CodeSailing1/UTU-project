@@ -33,30 +33,36 @@
             <ul>
                 <li><img src="../src/img/svgs/help.svg" alt="Help icon"><a href="./help.html"></a></img></li>
                 <li><button id="logout-button"><a href="./logout_success.html">Logout</a></button></li>
-                <li><button id="products-button"><a href="./register.html">Products</a></button></li>
-                <li><button id="companies-button"><a href="./login.html">Empresas</a></button></li>
-                <li><button id="disputes-button"><a href="./login.html">Disputas</a></button></li>
+                <li><button id="products-button"><a href="../public html/register.html">Products</a></button></li>
+                <li><button id="companies-button"><a href="../public html/login.html">Empresas</a></button></li>
+                <li><button id="disputes-button"><a href="../public html/login.html">Disputas</a></button></li>
             </ul>
         </nav>
     </header>
     <div id="separator"></div>
     <main>
-        <br><br>
-            <section class="producto">
-                <div class="imagen-producto">
-                    <img src="../src/img/png-mobile-phone-png-icns-more-512.webp" alt="Imagen del Producto">
-                </div>
-                <div class="detalles-producto">
-                    <h2>Nombre del Producto</h2>
-                    <p class="descripcion">Este es un breve resumen del producto, sus características y beneficios. Ideal para quienes buscan calidad y precio.</p>
-                    <p class="precio">1000</p>
-                    <form class="agregar-carrito">
-                        <label for="cantidad">Cantidad:</label>
-                        <input type="number" id="cantidad" name="cantidad" min="1" value="1">
-                        <button type="submit">Añadir al carrito</button>
-                    </form>
-                </div>
-            </section>
+    <br><br>
+    <section class="producto">
+        <div class="imagen-producto">
+            <img src="../src/img/png-mobile-phone-png-icns-more-512.webp" alt="Imagen del Producto">
+        </div>
+        <div class="detalles-producto">
+            <h2>Nombre del Producto</h2>
+            <p class="descripcion">Este es un breve resumen del producto, sus características y beneficios. Ideal para quienes buscan calidad y precio.</p>
+                <p class="precio">1000</p>
+                <form class="agregar-carrito">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" value="1">
+                    <button type="submit">Añadir al carrito</button>
+                    <button type="submit">ELIMINAR PRODUCTO</button>
+                </form>
+        </div>
+    </section>
+    <h2>Productos Relacionados</h2>
+    <section id="discounts">
+        <article id="products" class="products-container">
+
+        </article>
     </main>
     <footer>
         <div>
