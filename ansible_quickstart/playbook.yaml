@@ -15,4 +15,11 @@
       ansible.builtin.service:
         name: httpd
         state: starte
-        
+    - name: install mysql
+      package:
+        name: mysql-server
+        state: latest
+    - name: install php
+      package:
+        name: php
+        state: latest
