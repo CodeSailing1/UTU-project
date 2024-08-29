@@ -1,4 +1,4 @@
-fetch("./json/product.json")
+fetch("../src/json/product.json")
     .then(response => response.json())
     .then(data => {
         const mobilePhones = data.products[0].mobilePhones;
@@ -20,7 +20,7 @@ fetch("./json/product.json")
             console.log(markup);
         }
     })
-fetch("./json/product.json")
+fetch("../src/json/product.json")
     .then(response => response.json())
     .then(data => {
         const mobilePhones = data.products[0].mobilePhones;
@@ -42,7 +42,7 @@ fetch("./json/product.json")
             console.log(markup);
         }
     })
-    fetch("./json/product.json")
+    fetch("../src/json/product.json")
     .then(response => response.json())
     .then(data => {
         const mobilePhones = data.products[0].mobilePhones;

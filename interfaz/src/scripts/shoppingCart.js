@@ -43,7 +43,7 @@ setTimeout(() => {
           let precio = cantProd[ productId ].price * cantProd[ productId ].quantity;
           const productLi = `
             <li id="${ productId }" class="product-cart">
-              <img src="./img/png-mobile-phone-png-icns-more-512.webp">
+              <img src="../src/img/png-mobile-phone-png-icns-more-512.webp">
               ${ cantProd [productId ].name } ${ cantProd[ productId ].quantity }
               <span>${ precio }</span>
               <button class="del-product">X</button>
@@ -79,7 +79,7 @@ setTimeout(() => {
           let precio = cantProd[ productId ].price * cantProd[ productId ].quantity;
           const productLi = `
             <li id="${ productId }" class="product-cart">
-              <img src="./img/png-mobile-phone-png-icns-more-512.webp">
+              <img src="../src/img/png-mobile-phone-png-icns-more-512.webp">
               ${ cantProd[ productId ].name } ${ cantProd[ productId ].quantity }
               <span>${ precio }</span>
               <button class="del-product">X</button>

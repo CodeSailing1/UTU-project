@@ -3,9 +3,9 @@ const backward = document.getElementById("prevBtn");
 const forward = document.getElementById("nextBtn");
 
 const images = [
-    `./img/luca-micheli-ruWkmt3nU58-unsplash.webp`,
-    `./img/Claptransparente.png`,
-    `./img/png-mobile-phone-png-icns-more-512.webp`
+    `../src/img/luca-micheli-ruWkmt3nU58-unsplash.webp`,
+    `../src/img/Claptransparente.png`,
+    `../src/img/png-mobile-phone-png-icns-more-512.webp`
 ];
 let position = 0;
 
