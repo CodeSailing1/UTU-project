@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="history-cart.css">
+    <title>History - Clap</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="../src/img/Claptransparente.png" alt="#" class="logo"></li>
+                <li class="dropdown">Categories
+                    <div class="dropdown-content">
+                        <ul>
+                            <li>Sales</li>
+                            <li>Books</li>
+                            <li>Music</li>
+                            <li>Mobile Phones</li>
+                            <li>Clothes</li>
+                            <li>Furniture</li>
+                            <li>Sports</li>
+                            <li>Jewerly</li>
+                            <li>Helth and care</li>
+                            <li>Tools</li>
+                            <li>Videogames and consoles</li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="search-bar"><label for="search"></label><input type="search" name="search" id="search"><img src="./img/svgs/search.svg" alt=""></li>
+            </ul>
+            <ul>
+
+                <li class="dropdown">
+                    <img src="../src/img/svgs/shopping-cart.svg"><a href="./shoppingCart.html" class="dropbtn"></a></img>
+                    <div class="dropdown-content">
+                        <ul id="cart"></ul>
+                    </div>
+                </li>
+                <li><img src="../src/img/svgs/help.svg" alt="Help icon"><a href="./help.html"></a></img></li>
+                <li><button id="register-button"><a href="./register.html">register</a></button></li>
+                <li><button id="login-button"><a href="./login.html">login</a></button></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="separator"></div>
+    <main>
+        <br><h2>Product History</h2>
+            <section id="visited-products">
+                <article id="products-1" class="products-container">
+                    <!-- WIP - acá debería estar el historial de verdad. Hasta ahora esto funciona solo de maqueta. -->
+                </article>
+            </section>
+    </main>
+    <footer>
+        <div>
+            <ul>
+                <li><img src="../src/img/svgs/brand-x.svg" alt=""><a href=""></a></img></li>
+                <li><img src="../src/img/svgs/brand-youtube.svg" alt=""><a href=""></a></img></li>
+                <li><img src="../src/img/svgs/brand-facebook.svg" alt=""><a href=""></a></img></li>
+                <li><img src="../src/img/svgs/brand-instagram.svg" alt=""><a href=""></a></img></li>
+            </ul>
+            <ul>
+                <li><a href="#" target="_blank">Term of service and use</a></li>
+                <li><a href="#" target="_blank">How we take care of your privacity</a></li>
+                <li><a href="#" target="_blank">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../src/scripts/shoppingCart.js"></script>
+    <script src="../src/scripts/history.js"></script>
+    <script src="../src/scripts/showProduts.js"></script>
+</body>
+</html>

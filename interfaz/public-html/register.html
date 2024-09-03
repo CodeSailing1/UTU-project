@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register-login.css">
+    <title>Register</title>
+</head>
+<body>
+    <form action="" method="post" id="signUpForm">
+        <legend>Sign Up</legend>
+            <article>
+                <div>
+                    <p>Name</p>
+                    <label for="name">
+                        <input type="text" name="name" id="name" minlength="2" maxlength="25" required>
+                        <span id="error"></span>
+                    </label>
+                </div>
+                <div>
+                    <p>Last Name</p>
+                    <label for="lastName">
+                        <input type="text" name="lastName" id="lastName" minlength="2" maxlength="25" required>
+                        <span id="error"></span>
+                    </label>
+                </div>
+            </article>
+        <label for="email">eMail
+            <input type="email" name="email" id="email" minlength="2" maxlength="50" required>
+            <span id="error"></span>
+        </label>
+        <label for="password">Password
+            <input type="password" name="password" id="password" minlength="8" maxlength="50" required>
+            <span id="error"></span>
+        </label>
+        <fieldset>
+            <label for="day">Day
+                <input type="number" name="day" id="day" minlength="2" maxlength="2" required>
+            </label>
+            <label for="month">Month
+                <input type="number" name="month" id="month" minlength="2" maxlength="2" required>
+            </label>
+            <label for="year">Year
+                <input type="number" name="year" id="year" minlength="2" maxlength="4" required>
+            </label>
+        </fieldset>
+        <label for="select">Gender
+            <select name="select" id="selectGenres" required>
+                <option value="gender" selected>--</option>
+                <option value="gender">Man</option>
+                <option value="gender">Woman</option>
+                <option value="gender">They</option>
+            </select>
+        </label>
+        <article id="btns">
+            <label for="signUp">
+                <input type="submit" value="Sign Up" id="registerSubmit" disabled>
+            </label>
+            <div id="separator"></div>
+            <label>
+                <a href="./login.html" id="logIn">Log In</a>
+            </label>
+        </article> 
+    </form>
+    <script src="../src/scripts/validator.js"></script>
+</body>
+</html>
