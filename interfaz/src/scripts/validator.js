@@ -16,21 +16,22 @@ const tFs = {
     month: false,
     year: false
 }
-const tFsLogIn = {
-    email: false,
-    password:false
-}
-
+// const tFsLogIn = {
+//     email: false,
+//     password:false
+// }
 const signUpForm = document.getElementById("signUpForm");
 const inputSignUp = document.querySelectorAll("#signUpForm input");
-const submit = document.getElementById("submit");
-console.log(submit);
+const registerSubmit = document.getElementById("registerSubmit");
+// const loginForm = document.getElementById("loginForm");
+// const inputLogin = document.querySelectorAll("#signUpForm input");
+// const loginSubmit = document.getElementById("loginSubmit");
+
 
 inputSignUp.forEach(input => {
     input.addEventListener("input", (e) => {
         let validation = validationInputs(requeriments[e.target.name], e.target.value, e.target.id);
         submitValidation(validation);
-        submitValidationLogin(validation);
     }); 
 })
 
@@ -42,13 +43,13 @@ function validationInputs(requeriment, input, idInput) {
             element.classList.add("valid");
             element.classList.remove("invalid");
             tFs[idInput] = true;
-            tFsLogIn[idInput] = true;
+            // tFsLogIn[idInput] = true;
                 
         } else{
             element.classList.add("invalid");
             element.classList.remove("valid");
             tFs[idInput] = false;
-            tFsLogIn[idInput] = false;
+            // tFsLogIn[idInput] = false;
 
             throw new Error("Ingresa valores validos");
         }
@@ -64,15 +65,59 @@ function validationInputs(requeriment, input, idInput) {
 function submitValidation() {
     let allElementsValid = true;
     for(let input in tFs){
-        (!tFs[input]) ? allElementsValid = false : allElementsValid = true;
+        if (!tFs[input]) {
+            allElementsValid = false;
+            break;
+        }
     }
-        (allElementsValid) ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "");
+        (allElementsValid) ? registerSubmit.removeAttribute("disabled") : registerSubmit.setAttribute("disabled", "");
+        return true;
 }
-function submitValidationLogin() {
-    let allElementsValid = true;
-    for(let input in tFsLogIn){
-        (!tFsLogIn[input]) ? allElementsValid = false : allElementsValid = true;
+// function submitValidationLogin() {
+//     let allElementsValid = true;
+//     for(let input in tFsLogIn){
+//         if (!tFs[input]) {
+//             allElementsValid = false;
+//             break;
+//         }
+//     }
+//         (allElementsValid) ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "");
+// }
+
+registerSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    const formData = new FormData(signUpForm);
+    if (!submitValidation()) {
+        console.error("No se pueden enviar los datos porque hay errores en el formulario");
     }
-        (allElementsValid) ? submit.removeAttribute("disabled") : submit.setAttribute("disabled", "");
-}
+    fetch('/UTU-project/logica/register.php', {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+});
+
+// loginSubmit.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     const formData = new FormData(signUpForm);
+//     if(submitValidation()){
+//         fetch('/UTU-project/logica/register.php', {
+//             method: "POST",
+//             body: formData
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log("Solicitud enviada con éxito: ", data);
+//         })
+//         .catch(error => {
+//             console.log("Error al enviar la solicitud: ", error);
+//         });
+//     }
+// });
 
