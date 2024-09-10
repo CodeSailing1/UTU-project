@@ -1,13 +1,14 @@
 <?php
-function validateData($data){
-    if(!preg_match(requirements["$data"], $data)){
-        echo "Insert a valid $data";
+function loginValidator(){
+    if(!isset($_SESSION['nombre'])){
+        header("Location: /UTU-project/interfaz/public-html/login.html");
         session_abort();
+        exit;
     }
+    
 }
-function testInput($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+function URLvalidator(){
+if ($_SERVER['REQUEST_URI'] === "/UTU-project/interfaz/public-html/finder.php"){
+    require 'showProducts.php';
+}
 }
