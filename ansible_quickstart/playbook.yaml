@@ -1,4 +1,4 @@
-- name: My first play
+- name: Config server
   hosts: myhosts
   become: true
   tasks:
@@ -8,18 +8,36 @@
         state: latest
         update_only: true
     - name: install httpd
-      package:
+      ansible.builtin.yum:
         name: httpd
         state: latest
     - name: start httpd
       ansible.builtin.service:
         name: httpd
         state: starte
-    - name: install mysql
-      package:
-        name: mysql-server
-        state: latest
     - name: install php
-      package:
+      ansible.builtin.yum:
         name: php
         state: latest
+    - name: start php
+      ansible.builtin.service:
+        name: php-fpm
+        state: started
+    - name: configure firewall
+      firewalld:
+        name: http
+        zone: public
+        state: enabled
+    - name: restart firewalld
+      ansible.builtin.service:
+        name: firewalld
+        state: restarted
+    - name: install mysql
+      ansible.builtin.yum::
+        name: mysql-server
+        state: latest
+    - name: start mysql
+      ansible.builtin.service:
+      service:
+        name: mysql
+        state: started

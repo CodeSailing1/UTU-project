@@ -32,10 +32,9 @@ services:
   db:
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: "clap"
-      MYSQL_USER: "juan"
-      MYSQL_PASSWORD: "12345"
-    restart: always
+      MYSQL_DATABASE: "sigtoclap"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: ""
     volumes:
     - ./persistencia/mysql/:/var/lib/mysql
     ports:

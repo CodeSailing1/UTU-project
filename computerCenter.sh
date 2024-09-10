@@ -151,7 +151,7 @@ respaldos(){
 				rsync -zvaP / user@192.168.122.53:path/to/backup
 				;;
 			2)
-				rsync -bzavP /etc/apache2/www/dominioPagina/paginaProyecto user@192.168.122.53:/home/Backups/paginaProyecto
+				rsync -bzavP /etc/httpd/www/dominioPagina/paginaProyecto user@192.168.122.53:/home/Backups/paginaProyecto
 				;;
 			3)
 				mysqldump -u "user" -p "password" dataBase > /path/to/dumps/db.$(date).dump
