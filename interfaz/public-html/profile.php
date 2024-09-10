@@ -8,42 +8,14 @@
     <title>Perfil Clap</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><img src="../src/img/Claptransparente.png" alt="#" class="logo"></li>
-                <li class="dropdown">Categories
-                    <div class="dropdown-content">
-                        <ul>
-                            <li>Sales</li>
-                            <li>Books</li>
-                            <li>Music</li>
-                            <li>Mobile Phones</li>
-                            <li>Clothes</li>
-                            <li>Furniture</li>
-                            <li>Sports</li>
-                            <li>Jewerly</li>
-                            <li>Helth and care</li>
-                            <li>Tools</li>
-                            <li>Videogames and consoles</li>
-                        </ul>
-                    </div>
-                </li>
-                <li id="search-bar"><label for="search"></label><input type="search" name="search" id="search"><img src="../src/img/svgs/search.svg" alt=""></li>
-            </ul>
-            <ul>
-                <li class="dropdown">
-                    <img src="../src/img/svgs/shopping-cart.svg"><a href="./shoppingCart.html" class="dropbtn"></a></img>
-                    <div class="dropdown-content">
-                        <ul id="cart"></ul>
-                    </div>
-                </li>
-                <li><img src="../src/img/svgs/help.svg" alt="Help icon"><a href="./help.html"></a></img></li>
-                <li><button id="register-button"><a href="./register.html">register</a></button></li>
-                <li><button id="login-button"><a href="./login.html">login</a></button></li>
-            </ul>
-        </nav>
-    </header>
+    <?php
+    session_start();
+    include_once '/xampp/htdocs/UTU-project/logica/functions.php';
+    loginValidator();
+    ?>
+    <?php
+        include 'header.php';
+    ?>
     <div id="separator"></div>
 
     <section class="container">
@@ -118,6 +90,8 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../src/scripts/profile.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/profile.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/finder.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/logout.js"></script>
 </body>
 </html>
