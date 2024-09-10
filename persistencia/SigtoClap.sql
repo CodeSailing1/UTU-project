@@ -101,7 +101,7 @@ CREATE TABLE `empresa` (
   `nombreEmpresa` varchar(30) NOT NULL,
   `emailEmpresa` varchar(30) NOT NULL,
   `telefonoEmpresa` int(11) NOT NULL,
-  `contraseniaEmpresa` varchar(45) NOT NULL,
+  `contraseniaEmpresa` varchar(255) NOT NULL,
   `direccionEmpresa` varchar(250) NOT NULL,
   `fotoDePerfilEmpresa` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -264,7 +264,7 @@ CREATE TABLE `usuario` (
   `nombreUsuario` varchar(30) NOT NULL,
   `emailUsuario` varchar(30) NOT NULL,
   `telefonoUsuario` int(11) NOT NULL,
-  `contraseniaUsuario` varchar(45) NOT NULL,
+  `contraseniaUsuario` varchar(255) NOT NULL,
   `direccionUsuario` varchar(250) NOT NULL,
   `fotoDePerfilUsuario` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
