@@ -2,8 +2,8 @@
 :root{
     --primary-text: #140908;
     --secondary-text: #fff;
-    --background-color: #FFFFFF;
-    --primary-color: #B87536;
+    --background-color: rgba(208,208,208,255);
+    --primary-color: rgba(70,197,122,255);
     --primary-color-headerTransition: #B8753670;
     --primary-color-headerBlurr: #B8753670;
     --secondary-color: #D2B394;
@@ -17,6 +17,12 @@
 body{
     margin-block: 1rem;
     margin-inline: 2rem;
+}
+li>button{
+    background-color: var(--primary-color);
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
 }
 a{
     color: var(--primary-text);
@@ -61,14 +67,43 @@ header{
     align-items: center;
 }
 
+
+.contenedor{
+    border: 1px solid #140908;
+    padding: 10px;
+    border-radius: 20px;
+}
+#products{
+    font-family: sans-serif, 'roboto';
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+.product-image{
+    font-size: 12px !important;
+}
+
+.contenedor button {
+    padding: 5px;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: rgba(128, 128, 128, 0.66);
+    transition: .4s ease-in;
+
+}
+.contenedor button:hover {
+    background-color: gray;
+    transform: scale(110%);
+}
 .dropdown:hover .dropdown-content {display: block;}
 
 nav{
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--accent-color);
     border-radius: 8px;
-    background-color: var(--primary-color);
+    background-color: #fff;
+    border: 2px var(--primary-color) solid;
     padding: var(--padding);
 }
 nav>ul>li{
@@ -81,34 +116,29 @@ ul{
 
 #search-bar{
     display: flex;
-    align-items: center;
-    background-color: var(--background-color);
-    width: 20%;
-    border: 2px var(--accent-color) solid;
+    background-color: var(--primary-color);
+    width: 250px;
     border-radius: 8px;
-    padding: 4px;
 }
-#search-bar>input[type="search"]{
+
+#finderResult{
     border: 0;
     margin: 0;
-    width: 100%;
-    padding-block: 8px;
+    background-color: var(--background-color);
+}
+#search{
+    background-color: var(--primary-color);
+    border: 0;
 }
 
-li>button,
-li>input,
-li>img{
-    border-radius: 8px;
-}
-li>button{
-    border: 10px var(--accent-color) solid;
 
-}
 #register-button,
 #login-button{
     padding: var(--padding);
-    border: 2px var(--accent-color) solid;
+    border: 2px var(--primary-color) solid;
+    border-radius: 8px;
 }
+
 .products-container{
     display: flex;
     overflow:auto;
@@ -155,11 +185,10 @@ aside{
     padding: 10px;
     grid-row: 1 / -1;
 }
-#category-list{
-    display: flex;
+.category-list{
     flex-direction: column;
 }
-#category-list>li{
+.category-list>li{
     background-color: #fff;
     width: 100%;
     margin: 2px;
@@ -181,11 +210,13 @@ main{
 }
 footer{
     background-color: var(--primary-color);
-    margin-top: 20px;
     padding-block: var(--padding);
     border-radius: 8px;
     display: flex;
     justify-content: center;
+    grid-row: 4 / -1;
+    grid-column: 1 / -1;
+    margin-top: 1%;
 }
 footer>div{
     width: var(--general-width);
