@@ -35,7 +35,7 @@ setTimeout(() => {
               <span>${ cantProd[ productId ].price }</span>
               <button class="del-product">X</button>
             </li>
-           `;
+            `;
           cart.insertAdjacentHTML( `beforeend`, productLi );
         } else {
 

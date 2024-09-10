@@ -2,53 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('finder');
     const inputField = document.getElementById('finderResult');
 
-    formulario.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const searchTerm = inputField.value.trim();
-
-        if (!searchTerm) {
-            console.log("Please enter a search term.");
-            return;
-        }
-
-        fetch('/UTU-project/logica/finder.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                nombre: searchTerm 
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.text();
-        })
+    let params = new URLSearchParams(location.search);
+    
+    let query = params.get('searchTerm');
+    
+    const url = new URL('/UTU-project/logica/finder.php', location.origin);
+    url.searchParams.set('searchTerm', query);
+    
+    if (window.location.href != "http://localhost/UTU-project/interfaz/public-html/finder.php"){
+        fetch(url)
+        .then(response => response.json())
         .then(data => {
-            
-            try {
-                const products = JSON.parse(data);
-                const productsContainer = document.getElementById("products");
-                productsContainer.innerHTML = '';
-                for (let i = 0; i < products.length; i++) {
-                    const product = products[i];
-                    const item = document.createElement("div");
-                    const template = `
-                    <div class="product-image">
-                        <h2>${product.nombre}</h2>
-                    </div>
-                    <button data-id="${product.id}">Add to Cart</button>
-                    `;
-                    item.innerHTML = template;
-                    document.getElementById("products").appendChild(item);
-                }
-                
-            } catch (error) {
-                console.error("Error parsing data:", error);
-            }
+            const productsContainer = document.getElementById("products");
+            productsContainer.innerHTML = '';
+            data.forEach(product => {
+                const item = document.createElement("div");
+                item.classList.add("contenedor");
+                const template = `
+                <div class="product-image">
+                    <h2>${product.nombreProducto}</h2>
+                </div>
+                <button id="${product.idProducto}">Add to Cart</button>
+                `;
+                item.innerHTML = template;
+                productsContainer.appendChild(item);
+            });
         })
-        .catch(error => {
-            console.error("Error fetching data:", error);
-        })
-    });
-});
+    }
+})
