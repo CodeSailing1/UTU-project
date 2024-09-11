@@ -1,19 +1,21 @@
-*{margin: 0; padding: 0; color: #fff;}
+*{margin: 0; padding: 0; color: #140908;}
 :root{
     --primary-text: #140908;
     --secondary-text: #fff;
-    --background-color: #FFFFFF;
-    --primary-color: #B87536;
+    --background-color: rgba(208,208,208,255);
+    --primary-color: rgba(70,197,122,255);
     --primary-color-headerTransition: #B8753670;
+    --primary-color-headerBlurr: #B8753670;
     --secondary-color: #D2B394;
     --accent-color: #C6AF76;
-    --invalid-color: #e9471f;
-    --valid-color: #1fe951;
     --general-width: 80%;
     --primary-font: ;
     --secondary-font: ;
     --padding: 0.625rem;
-    --border-radius: 8px;
+    --secondary-padding: 0.200rem;
+    --valid-color: rgba(70,197,122,255);
+    --invalid-color: #d61f1f;
+
 }
 body{
     width: 100vw;
@@ -21,24 +23,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
+    background-color: #e5e5f7;
 }
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    background-color: var(--primary-color);
-    width: auto;
+    background-color: #fff;
+    width: 500px;
+    padding: 50px;
     height: fit-content;
-    padding: var(--padding);
-    border-radius: var(--border-radius);
+    border: 2px var(--primary-color) solid;
+    border-radius: 8px;
 }
 input, select, #signUp, #logIn{
     border: 0;
     border-radius: 8px;
     margin-block: 3%;
     padding: var(--padding);
+    border: 2px #140908 solid;
+    border-radius: 8px;
     color: var(--primary-text);
 }
 #signUp, #logIn{

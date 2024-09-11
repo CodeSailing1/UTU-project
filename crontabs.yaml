@@ -1,0 +1,32 @@
+- name: Create crontab file
+  hosts: myhosts
+  tasks:
+    - name: Create webServer backup
+      ansible.builtin.cron:
+        name: "Backup webServer"
+        job: "/path/to/webServer.sh"
+        state: present
+        minute: "0"
+        hour: "0"
+    - name: Create webPage backup
+      ansible.builtin.cron:
+        name: "Backup webpage"
+        job: "/path/to/webPage.sh"
+        state: present
+        minute: "0"
+        hour: "0"
+        day: "1"
+    - name: Create dataBase backup
+      ansible.builtin.cron:
+        name: "Backup dataBase"
+        job: "/path/to/dataBase.sh"
+        state: present
+        minute: "0"
+    - name: Create logs backup
+      ansible.builtin.cron:
+        name: "Backup logs system"
+        job: "/path/to/logs.sh"
+        state: present
+        minute: "0"
+        hour: "0"
+

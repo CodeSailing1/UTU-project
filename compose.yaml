@@ -1,22 +1,44 @@
-version: "0.0"
+version: "0.1"
+networks:
+  web_network:
+    driver: bridge
+    internal: true
+  connection_network:
+    driver: bridge
+
 services:
-  web-app:
+  web-app-interface:
+    image: httpd:latest
+    ports:
+      - "8080:8080"
     depends_on:
       - db
-    image: httpd:2.4
-    ports:
-      - "8080:80"
-    configs:
-      - httpd-config
-    env_file:
-      - webApp.env
-  db:
-    image: mysql
+      - web-app-logic
+    networks:
+      - web_network
+
+  web-app-logic:
+    image: php:latest
     volumes:
-      - .example
-    restart: always
-    env_file:
-      - db.env
-configs:
-  httpd-config:
-    external: true
+      -./persistencia/mysql:/usr/local/httpd/www/codesailing
+    ports:
+      -"8080:80"
+    depends_on:
+      - db
+    networks:
+      - web_network
+      - connection_network
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: "sigtoclap"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: ""
+    volumes:
+    - ./persistencia/mysql/:/var/lib/mysql
+    ports:
+      -"3306:3306"
+    networks:
+      - web_network
+      - connection_network

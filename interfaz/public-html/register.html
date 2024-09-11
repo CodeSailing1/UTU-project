@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="register-login.css">
+    <script src="../src/scripts/register.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    <form action="" method="post" id="signUpForm">
+        <label for="name">
+            Nombre
+            <input type="text" name="name" id="name" minlength="2" maxlength="25" required>
+        </label>
+            </article>
+        <label for="email">eMail
+            <input type="email" name="email" id="email" minlength="2" maxlength="50" required>
+        </label>
+        <label for="password">Password
+            <input type="password" name="password" id="password" minlength="8" maxlength="50" required>
+        </label>
+        <label for="telfono">
+            Telefono
+            <input type="number" name="phone" id="telefonoUsuario">
+        </label>
+        <label for="cirection">
+            Direccion
+            <input type="text" name="direccion" id="direccion">
+        </label>
+        <article id="btns">
+            <label for="signUp">
+                <input type="submit" value="Sign Up" id="registerSubmit" disabled>
+            </label>
+            <div id="separator"></div>
+            <label>
+                <a href="./login.html" id="logIn">Log In</a>
+            </label>
+        </article> 
+    </form>
+</body>
+</html>
