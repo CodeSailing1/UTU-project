@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(document.body, { childList: true, subtree: true });
         function getElements() {
+
             const products = document.querySelectorAll(".modificar");
             products.forEach((product) => {
                 product.addEventListener("click", () => {
@@ -18,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         }
-        
+
     function modifyProduct(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
