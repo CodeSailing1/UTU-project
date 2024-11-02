@@ -1,14 +1,8 @@
-version: "0.1"
+version: "3.0"
 networks:
-  web_network:
-    driver: bridge
-    internal: true
-  connection_network:
-    driver: bridge
-
 services:
   web-app-interface:
-    image: httpd:latest
+    image: http:latest
     ports:
       - "8080:8080"
     depends_on:
@@ -32,7 +26,7 @@ services:
   db:
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: "sigtoclap"
+      MYSQL_DATABASE: "sigto"
       MYSQL_USER: "root"
       MYSQL_PASSWORD: ""
     volumes:
