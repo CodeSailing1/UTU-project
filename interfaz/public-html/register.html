@@ -4,99 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="register-login.css">
-    <script type="module" src="../src/scripts/usuario/register.js"></script>
-    <script type="module" src="../src/scripts/empresas/registerEmpresas.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="../src/scripts/register.js"></script>
     <title>Register</title>
 </head>
-<body class="d-flex align-items-center ">
-    <div class="flex-column">
-        <h2>
-            Register usuario
-        </h2>
-        <form action="" method="post" id="signUpForm" class="form align-items-center gap-3">
-            
-            <div class="bg-body-secondary p-5 d-flex justify-content-center align-items-center overflow-hidden position-relative object-fit-cover" style=" width: 100px; height: 100px;border-radius: 50%;">
-                <img src="../src/img/svgs/profile.svg" alt="" height="50" id="svg">
-                <img src="" alt="" style="display: none; " id="file-preview" height="100" width="100">
-                <input class="  form-control position-absolute w-100 h-100" style="opacity: 0; object-fit: cover; border-radius: 50%;" type="file" name="image" id="imagen" required>
-            </div>
-            <label for="name">
-                Nombre
-                <input class="form-control" type="text" name="name" id="name" minlength="2" maxlength="25" required>
+<body>
+    <form action="" method="post" id="signUpForm">
+        <label for="name">
+            Nombre
+            <input type="text" name="name" id="name" minlength="2" maxlength="25" required>
+        </label>
+            </article>
+        <label for="email">eMail
+            <input type="email" name="email" id="email" minlength="2" maxlength="50" required>
+        </label>
+        <label for="password">Password
+            <input type="password" name="password" id="password" minlength="8" maxlength="50" required>
+        </label>
+        <label for="telfono">
+            Telefono
+            <input type="number" name="phone" id="telefonoUsuario">
+        </label>
+        <label for="cirection">
+            Direccion
+            <input type="text" name="direccion" id="direccion">
+        </label>
+        <article id="btns">
+            <label for="signUp">
+                <input type="submit" value="Sign Up" id="registerSubmit" disabled>
             </label>
-                </article>
-            <label for="email">eMail
-                <input class="form-control" type="email" name="email" id="email" minlength="2" maxlength="50" required>
+            <div id="separator"></div>
+            <label>
+                <a href="./login.html" id="logIn">Log In</a>
             </label>
-            <label for="password">Password
-                <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="50" required>
-            </label>
-            <label for="telfono">
-                Telefono
-                <input class="form-control" type="number" name="phone" id="telefonoUsuario">
-            </label>
-            <label for="cirection">
-                Direccion
-                <input class="form-control" type="text" name="direccion" id="direccion">
-            </label>
-            
-            <article id="btns" class="m-0">
-                <label for="signUp">
-                    <input class="btn btn-outline-success w-100 form-control" type="submit" value="Sign Up" id="registerSubmit" disabled>
-                </label>
-                <div id="separator"></div>
-                <label>
-                    <a href="./login.html" class="btn btn-outline-danger w-100 form-control" role="button" id="logIn">Log In</a>
-                </label>
-            </article> 
-        </form>
-    </div>
-    <div class="d-flex m-5" style="height: 500px;">
-        <div class="vr" style="width: 2px; border-radius: 8px;"></div>
-    </div>
-    <div class="flex-column">
-        <h2>
-            Register empresa
-        </h2>
-        <form action="" method="post" id="signUpFormEmpresas" class="form align-items-center gap-3">
-            
-            <div class="bg-body-secondary p-5 d-flex justify-content-center align-items-center overflow-hidden position-relative object-fit-cover" style=" width: 100px; height: 100px;border-radius: 50%;">
-                <img src="../src/img/svgs/profile.svg" alt="" height="50" id="svg">
-                <img src="" alt="" style="display: none; " id="file-preview" height="100" width="100">
-                <input class="  form-control position-absolute w-100 h-100" style="opacity: 0; object-fit: cover; border-radius: 50%;" type="file" name="imageEmpresas" id="imagenEmpresas" required>
-            </div>
-            <label for="nameEmpresas">
-                Nombre
-                <input class="form-control" type="text" name="nameEmpresas" id="nameEmpresas" minlength="2" maxlength="25" required>
-            </label>
-                </article>
-            <label for="emailEmpresas">eMail
-                <input class="form-control" type="email" name="emailEmpresas" id="emailEmpresas" minlength="2" maxlength="50" required>
-            </label>
-            <label for="passwordEmpresas">Password
-                <input class="form-control" type="password" name="passwordEmpresas" id="passwordEmpresas" minlength="8" maxlength="50" required>
-            </label>
-            <label for="telfonoEmpresas">
-                Telefono
-                <input class="form-control" type="number" name="phoneEmpresas" id="telefonoEmpresas">
-            </label>
-            <label for="cirectionEmpresas">
-                Direccion
-                <input class="form-control" type="text" name="direccionEmpresas" id="direccionEmpresas">
-            </label>
-            
-            <article id="btns" class="m-0">
-                <label for="signUp">
-                    <input class="btn btn-outline-success w-100 form-control" type="submit" value="Sign Up" id="registerSubmitEmpresas" disabled>
-                </label>
-                <div id="separator"></div>
-                <label>
-                    <a href="./login.html" class="btn btn-outline-danger w-100 form-control" role="button" id="logInEmpresas">Log In</a>
-                </label>
-            </article> 
-        </form>
-    </div>
+        </article> 
+    </form>
 </body>
 </html>

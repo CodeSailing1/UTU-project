@@ -14,7 +14,7 @@
     - name: start httpd
       ansible.builtin.service:
         name: httpd
-        state: start
+        state: starte
     - name: install php
       ansible.builtin.yum:
         name: php
@@ -25,7 +25,7 @@
         state: started
     - name: configure firewall
       firewalld:
-        name: httpd
+        name: http
         zone: public
         state: enabled
     - name: restart firewalld
@@ -33,7 +33,7 @@
         name: firewalld
         state: restarted
     - name: install mysql
-      ansible.builtin.yum:
+      ansible.builtin.yum::
         name: mysql-server
         state: latest
     - name: start mysql

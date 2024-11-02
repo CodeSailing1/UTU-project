@@ -1,83 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="categorias.css">
     <title>Document</title>
 </head>
-
-<body class="row overflow-x-hidden">
+<body>
     <?php
     session_start();
+    if ($_SERVER['REQUEST_URI'] === "http://localhost/UTU-project/interfaz/public-html/finder.php"){
+        include '/UTU-project/logica/showProducts.php';
+    }
     ?>
-    <?php
-    include 'header.php';
-    ?>
-
-    <aside class=" flex-shrink-0 p-3  vh-100 col-2">
-        <div class="list-group flex-column m-3">
-            <h2>Categories</h2>
-            <div class="d-flex">
-                <input type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                    aria-current="page" value="Clear category">
-
-            </div>
-
-            </input>
-            <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                aria-current="page">
-                Juguetes
-            </button>
-            <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                aria-current="page">
-                Tecnologia
-            </button>
-            <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                aria-current="page">
-                Maquinaria
-            </button>
-            <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                aria-current="page">
-                Escolares
-            </button>
-            <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
-                aria-current="page">
-                Comida
-
-            </button>
-        </div>
-    </aside>
-    <main class="container col">
-        <section id="products" class="row grid gap-0 row-gap-3">
-
+    
+    <div id="categories">
+        <?php
+        include 'header.php';
+        ?>
+        <section id="search-section">
+            <div id="search-bar"><form action="" method="POST" id="finder">
+            <label for="search"></label><input type="search" name="search" id="finderResult"><input type="submit">
+            </form></div>
         </section>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <aside>
+            <h2>Categories</h2>
+            <ul class="category-list">
+                <li>
+                    Category
+                </li>
+                <li>
+                    Category
+                </li>
+                <li>
+                    Category
+                </li>
+                <li>
+                    Category
+                </li>
+                <li>
+                    Category
+                </li>
             </ul>
-        </nav>
-    </main>
+        </aside>
+        <main>
+            <section id="products">
+            
+                
+            </section>
+        </main>
+        
+    </div>
+    <?php include 'footer.php'?>
 
-    <?php include 'footer.php' ?>
-    <script src="/UTU-project/interfaz/src/scripts/products/showProducts.js"></script>
-    <script src="/UTU-project/interfaz/src/scripts/products/categories.js"></script>
-    <script type="module" src="/UTU-project/interfaz/src/scripts/products/openProduct.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/shoppingCart.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/showProducts.js"></script>
     <script src="/UTU-project/interfaz/src/scripts/finder.js"></script>
-<script src="/UTU-project/interfaz/src/scripts/udateURL.js"></script>
-<script src="/UTU-project/interfaz/src/scripts/usuario/logout.js"></script>
-  <script type="module" src="/UTU-project/interfaz/src/scripts/addProductCarrito.js"></script>
-  <script type="module" src="/UTU-project/interfaz/src/scripts/removeProductCarrito.js"></script>
-  <script type="module" src="/UTU-project/interfaz/src/scripts/showProductCarrito.js"></script>
-  <script type="module" src="/UTU-project/interfaz/src/scripts/showTotalPriceCarrito.js"></script>
-  <script src="/UTU-project/interfaz/src/scripts/buyCart.js"></script>
-  <script type="module" src="/UTU-project/interfaz/src/scripts/usuario/insertHistory.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/udateURL.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/logout.js"></script>
 </body>
-
 </html>
