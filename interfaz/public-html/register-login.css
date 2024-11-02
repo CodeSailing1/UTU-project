@@ -23,35 +23,21 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e5e5f7;
+    background-color: #7e7e7e;
 }
 form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    background-color: #fff;
     width: 500px;
     padding: 50px;
     height: fit-content;
     border: 2px var(--primary-color) solid;
     border-radius: 8px;
 }
-input, select, #signUp, #logIn{
-    border: 0;
-    border-radius: 8px;
-    margin-block: 3%;
-    padding: var(--padding);
-    border: 2px #140908 solid;
-    border-radius: 8px;
-    color: var(--primary-text);
-}
-#signUp, #logIn{
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    background-color: var(--accent-color);
-}
+
+
 label{
     width: 100%;
     display: flex;
@@ -66,9 +52,7 @@ article, fieldset{
     justify-content: space-between;
     border: 0;
 }
-article div{
-    width: 100%;
-}
+
 select, option{
     color: var(--primary-text);
     border: 0;
@@ -79,11 +63,17 @@ select, option{
     background-color: var(--background-color);
     margin: 4px;
 }
-input:focus.valid{
+input.valid{
     background-color: var(--valid-color);
+}
+input:focus.invalid{
+    background-color: var(--invalid-color);
 }
 .valid{
     border: 2px solid var(--valid-color);
+}
+input.invalid{
+    background-color: var(--invalid-color);
 }
 input:focus.invalid{
     background-color: var(--invalid-color);
@@ -94,5 +84,4 @@ input:focus.invalid{
 #logInForm{
     width: 20%;
     height: 40%;
-    gap: 10px;
 }
