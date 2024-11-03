@@ -1,0 +1,87 @@
+*{margin: 0; padding: 0; color: #140908;}
+:root{
+    --primary-text: #140908;
+    --secondary-text: #fff;
+    --background-color: rgba(208,208,208,255);
+    --primary-color: rgba(70,197,122,255);
+    --primary-color-headerTransition: #B8753670;
+    --primary-color-headerBlurr: #B8753670;
+    --secondary-color: #D2B394;
+    --accent-color: #C6AF76;
+    --general-width: 80%;
+    --primary-font: ;
+    --secondary-font: ;
+    --padding: 0.625rem;
+    --secondary-padding: 0.200rem;
+    --valid-color: rgba(70,197,122,255);
+    --invalid-color: #d61f1f;
+
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7e7e7e;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 500px;
+    padding: 50px;
+    height: fit-content;
+    border: 2px var(--primary-color) solid;
+    border-radius: 8px;
+}
+
+
+label{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+article, fieldset{
+    width: 100%;
+    margin-right: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    border: 0;
+}
+
+select, option{
+    color: var(--primary-text);
+    border: 0;
+}
+#separator{
+    height: 30px;
+    width: 3px;
+    background-color: var(--background-color);
+    margin: 4px;
+}
+input.valid{
+    background-color: var(--valid-color);
+}
+input:focus.invalid{
+    background-color: var(--invalid-color);
+}
+.valid{
+    border: 2px solid var(--valid-color);
+}
+input.invalid{
+    background-color: var(--invalid-color);
+}
+input:focus.invalid{
+    background-color: var(--invalid-color);
+}
+.invalid{
+    border: 2px solid var(--invalid-color);
+}
+#logInForm{
+    width: 20%;
+    height: 40%;
+}
