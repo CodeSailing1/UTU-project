@@ -14,7 +14,7 @@ try {
 
     $products = new Productos(null, null, null, null, null, null, null, null, null, null, null, $pdo);
 
-    $result = $products->showAllProducts();
+    $result = $products->showProducts();
     return json_encode($result);
 } catch (Exception $e) {
     http_response_code(500);
