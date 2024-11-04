@@ -2,7 +2,6 @@
 include '../functions.php';
 require './Productos.php';
 require '../conexionSQL.php';
-
 header('Content-Type: application/json');
 
 $server = 'localhost';
@@ -12,11 +11,12 @@ $database = 'sigto';
 $ConexionDB = new conexionSQL($server, $database, $username, $password);
 $pdo = $ConexionDB->getPdo();
 
-$searchTerm = $_GET['searchTerm'];
+$categoryProduct = $_GET['category'];
 
-if (isset($searchTerm)) {
-    $products = new Productos(null, null, null, null, null, null, null, null,null, null, null, $pdo);
-    $producto = "%$searchTerm%";
-    $result = $products->findProductoByNameBackOffice($producto);
-    echo json_encode($result);
+if (isset($categoryProduct)) {
+    $product = new Productos(null, null, null, $categoryProduct, null, null,null,null,null, null, null, $pdo);
+    $categoria = "%$categoryProduct%";
+
+    $result = $product->findProductsByCategory();
+    echo json_encode($result); 
 }
