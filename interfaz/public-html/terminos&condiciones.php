@@ -35,7 +35,7 @@
 
         <h3>4. Privacidad de los usuarios</h3>
         <p>En Clap, priorizamos la privacidad de nuestros usuarios y nos comprometemos a proteger su información personal. No divulgamos datos sin el consentimiento explícito del usuario, incluyendo cualquier intercambio de información con terceros. Recopilamos únicamente la información esencial para ofrecer un mejor servicio y optimizar la experiencia en nuestra plataforma.</p>
-        <p>Para obtener más detalles sobre nuestra política de privacidad o cualquier consulta, por favor, contacta a nuestro equipo a través del número de teléfono indicado en la web.</p>
+        <p>Para obtener más detalles sobre nuestra política de privacidad o cualquier consulta puede visitar este link ( <a class="" href="/UTU-project/interfaz/public-html/privacidad.php" target="_blank">Privacidad</a> ) en donde explicamos con más detalles.</p>
 
         <h3>5. Responsabilidad</h3>
         <p>Clap actúa como una plataforma de conexión entre compradores y vendedores, por lo que la responsabilidad de los productos recae en los vendedores. Si bien trabajamos para asegurar que todos los objetos publicados cumplan con nuestros estándares, no garantizamos la calidad y seguridad de los mismos.</p>
@@ -57,6 +57,7 @@
             <li>Teléfono: 094709090</li>
             <li>Email: codesailing1@gmail.com</li>
         </ul>
+        <p>Si dudas permanecen sobre nuestros contactos puede entrar a este link ( <a class="" href="/UTU-project/interfaz/public-html/contacto.php" target="_blank">Contacto</a> ) para conocer más sobre como contactarnos y de esta manera para resolver sus dudas.</p>
     </div>
 
     <?php include 'footer.php' ?>
