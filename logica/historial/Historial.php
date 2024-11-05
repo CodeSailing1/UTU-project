@@ -39,16 +39,15 @@ class Historial
 
             // Check if the purchase was made on the same day
             $fechaCompra = new DateTime($rowData['productoHistorial']);
-            $fechaHoy = new DateTime();
-
-            if ($fechaCompra->format('Y-m-d') === $fechaHoy->format('Y-m-d')) {
+            $fechaCompraProducto = $fechaCompra->format('Y-m-d H:i:s');
+            
                 // Update the existing record
                 $stm = $this->pdo->prepare('UPDATE Guarda SET cantidad = :cantidad, precioCompra = :precioCompra, productoHistorial = :fecha WHERE idHistorial = :idUsuario AND idProducto = :idProducto AND tipo = :tipo');
                 $stm->bindParam(':cantidad', $newQuantity);
                 $stm->bindParam(':precioCompra', $newPrice);
                 $stm->bindParam(':idUsuario', $this->idUsuario);
                 $stm->bindParam(':idProducto', $idProducto);
-                $stm->bindParam(':fecha', $fechaCompra->format('Y-m-d H:i:s'));
+                $stm->bindParam(':fecha', $fechaCompraProducto);
                 $stm->bindParam(':tipo', $tipo);
 
                 if ($stm->execute()) {
@@ -58,9 +57,9 @@ class Historial
                         $inventarioEmpresa = new InventarioEmpresas(null, $this->pdo);
                         return $inventarioEmpresa->deleteProductAfterBought($idProducto, $cantidad);
                     }
+                    return false; // If the update failed
+
                 }
-            }
-            return false; // If the update failed
         } else {
             // New entry case
             $fecha = date("Y-m-d H:i:s");

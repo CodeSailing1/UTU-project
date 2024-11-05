@@ -1,0 +1,18 @@
+input.valid{
+    background-color: var(--valid-color);
+}
+input:focus.invalid{
+    background-color: var(--invalid-color);
+}
+.valid{
+    border: 2px solid var(--valid-color);
+}
+input.invalid{
+    background-color: var(--invalid-color);
+}
+input:focus.invalid{
+    background-color: var(--invalid-color);
+}
+.invalid{
+    border: 2px solid var(--invalid-color);
+}

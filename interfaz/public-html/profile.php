@@ -23,7 +23,7 @@
     ?>
 
     <main class="d-flex justify-content-center w-100">
-        <section class="col-md-6 d-flex flex-column align-items-center" id="formData">
+        <section class="col-md-6 d-flex flex-column align-items-center" id="showData">
             <div class="bg-body-secondary p-5 d-flex justify-content-center align-items-center overflow-hidden position-relative"
                 style="width: 100px; height: 100px; border-radius: 50%;">
                 <img src="/UTU-project/persistencia/assets/<?php echo $_SESSION['imagenUsuario']; ?>" alt="" height="100" id="svg">
@@ -70,7 +70,7 @@
                 <div class="modal-header justify-content-center">
                     <h5 class="modal-title" id="staticBackdropLabel">Cambio de contrasenia</h5>
                 </div>
-                <form action="" class="form-group row" name="formData" id="formData">
+                <form action="" method="post" class="form-group row" name="formData" id="formData">
                     <label class="col-form-label">
                         Password
                         <input type="password" name="password" class="form-control input" id="pass">

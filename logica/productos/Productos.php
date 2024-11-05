@@ -37,11 +37,42 @@ class Productos
     {
         return $this->fechaProducto = $fecha;
     }
-    public function findProductById($id)
+
+    public function findProductById($idProducto, $idEmpresa)
     {
-        $stm = $this->pdo->prepare("SELECT * FROM producto WHERE idProducto LIKE :id");
-        $stm->bindParam(':id', $id);
+        $stm = $this->pdo->prepare("SELECT p.* FROM producto p join contiene c on p.idProducto = c.idProducto join inventario i on c.idInventario = i.idInventario join empresa e on i.idEmpresa = e.idEmpresa WHERE p.idProducto LIKE :idProducto AND e.idEmpresa = :idEmpresa");
+        $stm->bindParam(':idProducto', $idProducto);
+        $stm->bindParam(':idEmpresa', $idEmpresa);
         if ($stm->execute()) 
+        {
+            $affectedRows = $stm->rowCount();
+            if ($affectedRows > 0) {
+                return $stm->fetch(PDO::FETCH_ASSOC);
+            }
+            echo json_encode('ERROR: Unable to show products');
+        }
+        echo json_encode('ERROR: query couldnt be executed');
+    }
+public function findProductByIdActivate($idProducto, $idEmpresa)
+    {
+        $stm = $this->pdo->prepare("SELECT p.* FROM producto p join contiene c on p.idProducto = c.idProducto join inventario i on c.idInventario = i.idInventario join empresa e on i.idEmpresa = e.idEmpresa WHERE p.idProducto LIKE :idProducto AND e.idEmpresa = :idEmpresa AND p.inactivoProducto = 1");
+        $stm->bindParam(':idProducto', $idProducto);
+        $stm->bindParam(':idEmpresa', $idEmpresa);
+        if ($stm->execute())
+        {
+            $affectedRows = $stm->rowCount();
+            if ($affectedRows > 0) {
+                return $stm->fetch(PDO::FETCH_ASSOC);
+            }
+            echo json_encode('ERROR: Unable to show products');
+        }
+        echo json_encode('ERROR: query couldnt be executed');
+    }
+    public function findProductByIdUsuario($idProducto)
+    {
+        $stm = $this->pdo->prepare("SELECT * FROM producto WHERE idProducto LIKE :idProducto");
+        $stm->bindParam(':idProducto', $idProducto);
+        if ($stm->execute())
         {
             $affectedRows = $stm->rowCount();
             if ($affectedRows > 0) {
@@ -57,7 +88,7 @@ class Productos
         {
             $this->showProducts();
         }
-        $stm = $this->pdo->prepare("SELECT idProducto, nombreProducto, precioProducto, categoriaProducto, imagenProducto FROM producto WHERE nombreProducto LIKE :producto AND inactivoProducto != 1 LIMIT 10");
+        $stm = $this->pdo->prepare("SELECT idProducto, nombreProducto, precioProducto, categoriaProducto, imagenProducto, descripcionProducto FROM producto WHERE nombreProducto LIKE :producto AND inactivoProducto != 1");
         $stm->bindParam(':producto', $producto);
         if ($stm->execute()) 
         {
@@ -69,9 +100,28 @@ class Productos
         }
         echo json_encode('ERROR: query couldnt be executed');
     }
+    public function findProductoByNameEmpresas($producto, $idEmpresa)
+    {
+        if(!isset($producto))
+        {
+            $this->showProducts();
+        }
+        $stm = $this->pdo->prepare("SELECT p.* FROM producto p JOIN contiene c ON p.idProducto = c.idProducto JOIN inventario i ON c.idInventario = i.idInventario JOIN empresa e ON i.idEmpresa = e.idEmpresa WHERE p.nombreProducto LIKE :producto AND e.idEmpresa = :idEmpresa");
+        $stm->bindParam(':producto', $producto);
+        $stm->bindParam(':idEmpresa', $idEmpresa);
+        if ($stm->execute())
+        {
+            $affectedRows = $stm->rowCount();
+            if ($affectedRows > 0) {
+                return $stm->fetchAll(PDO::FETCH_ASSOC);
+            }
+            echo json_encode('ERROR: Unable to show products');
+        }
+        echo json_encode('ERROR: query couldnt be executed');
+    }
     public function findProductsByCategory()
     {
-        $stm = $this->pdo->prepare("SELECT idProducto, nombreProducto, precioProducto, imagenProducto FROM producto WHERE categoriaProducto = :categoryProduct AND inactivoProducto != 1 LIMIT 10");
+        $stm = $this->pdo->prepare("SELECT idProducto, nombreProducto, precioProducto, imagenProducto FROM producto WHERE categoriaProducto = :categoryProduct AND inactivoProducto != 1 ");
         $stm->bindParam(':categoryProduct', $this->categoriaProducto);
         if($stm->execute())
         {
@@ -137,7 +187,7 @@ class Productos
     }
     
     
-    public function updateProduct($id, $img)
+    public function updateProduct($img)
 { 
         // Manejar la imagen
         
@@ -156,7 +206,7 @@ class Productos
         $stm->bindParam(':descripcionProducto', $this->descripcionProducto);
         $stm->bindParam(':img', $fotoDeProducto);
         $stm->bindParam(':fecha', $fechaProducto);
-        $stm->bindParam(':id', $id);
+        $stm->bindParam(':id', $this->idProducto);
 
         if($stm->execute()) {
             if($stm->rowCount() > 0) {
@@ -169,25 +219,24 @@ class Productos
     }
     public function deleteProduct($id)
     {
-        $inactivoProducto = true;
+        $inactivoProducto = 1;
         $stm = $this->pdo->prepare("UPDATE producto SET inactivoProducto = :inactivoProducto WHERE idProducto = :id");
         $stm->bindParam(':inactivoProducto', $inactivoProducto);
         $stm->bindParam(':id', $id);
         if($stm->execute())
         {
-            echo json_encode(["success" => true, "message" => "Product deletes duccesfully"]);
+            return json_encode(["success" => true, "message" => "Product deleted duccesfully"]);
         }
-        return json_encode(['error deleting the product']);
+        return json_encode(['success' => false, 'message' => 'deleting the product']);
     }
-public function showAllProducts()
+    public function showAllProducts()
     {
         $stm = $this->pdo->prepare("SELECT p.idProducto,p.nombreProducto,p.precioProducto,p.categoriaProducto,p.valoracionProducto, p.imagenProducto,p.ventasProducto,p.fechaProducto,p.visitasProducto,p.inactivoProducto , c.stock, e.nombreEmpresa
                                     FROM producto p
                                     LEFT JOIN contiene c ON p.idProducto = c.idProducto
                                     JOIN inventario i ON c.idInventario = i.idInventario
                                     JOIN empresa e ON i.idEmpresa = e.idEmpresa
-                                    ORDER BY p.idProducto ASC;
-");
+                                    ORDER BY p.idProducto ASC;");
         if ($stm->execute())
         {
             $affectedRows = $stm->rowCount();
@@ -230,5 +279,15 @@ public function showProductsBackOffice()
             }
         }
         return json_encode('ERROR: query couldnt be executed');
+    }
+    public function activateProduct($idProducto)
+    {
+        $stm = $this->pdo->prepare('UPDATE producto SET inactivoProducto = 0 WHERE idProducto = :idProducto');
+        $stm->bindParam(':idProducto', $idProducto);
+        if($stm->execute())
+        {
+            return json_encode(['success' => true, 'message' => 'Producto activado exitosamente']);
+        }
+        return json_encode(['success' => false, 'message' => 'No se pudo activar el producto']);
     }
 }

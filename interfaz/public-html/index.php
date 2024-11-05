@@ -1,3 +1,6 @@
+<?php
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +14,15 @@
     <title>Clap</title>
 </head>
 <body class="overflow-x-hidden">
-    <?php
-    session_start();
-    include_once '/xampp/htdocs/UTU-project/logica/functions.php';
-    ?>
+    
     <?php
         include 'header.php';
     ?>
     <main class="container">
         <div id="swiper-container1" class="swiper">
             <div class="swiper-wrapper" id="descuentos">
-                <div class="swiper-slide"><img src="../src/img/Claptransparente.png" alt=""></div>
-                <div class="swiper-slide"><img src="../src/img/png-mobile-phone-png-icns-more-512.webp" alt=""></div>
+                <div class="swiper-slide"><img src="../src/img/71WR45NFLgL.jpg" alt="" style="object-fit: fit" height="700"></div>
+                <div class="swiper-slide"><img src="../src/img/1366_2000.png" alt=""></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>

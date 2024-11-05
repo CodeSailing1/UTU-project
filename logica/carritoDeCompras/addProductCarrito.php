@@ -34,6 +34,6 @@ try {
     $result = $carrito->addProduct($idProducto);
     echo json_encode(['success'=> true,'Message'=> 'Product added succesfully']);
 } catch (Exception $e) {
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
 exit;

@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     url.searchParams.set('id', query);
     const id = url.searchParams.get('id');
-    console.log(id);
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -19,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const template = `
                 <div class="row">
                     <section id="product-images" class="col-8"> 
-                        <img src="/UTU-project/persistencia/assets/${data.imagenProducto}" alt="" id="principal-image" class="" height="500px" style="object-fit: none;">
+                        <img src="/UTU-project/persistencia/assets/${data.imagenProducto}" alt="" id="principal-image" class="" height="500px" style="object-fit: cover;">
                     </section>
                     <aside id="product-data" class="col bg-body-tertiary rounded-2 p-5">
                         <h3>
                             ${data.nombreProducto}
                         </h3>
-                        <p>${data.valoracionProducto}</p>
+                        <p>${data.precioProducto}</p>
                         <form action="" method="POST">
                             <a class="btn btn-outline-success me-2 addCart" id="${data.idProducto}">Add to Cart</a>
 
@@ -43,12 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                                 </select>
                                                 <input class="btn btn-outline-success" type="submit" value="Valorar Producto">
                                             </div>
+                                            
                                         </form>
                                     </li>
-                                    <li class="list-item my-1">${data.valoracionProducto}</li>
-                                    <li class="list-item my-1">hola</li>
-                                    <li class="list-item my-1">hola</li>
-                                    <li class="list-item my-1">hola</li>
                                 </ul>
                             </em>
                         </form>

@@ -17,6 +17,6 @@ $id = $_GET['id'];
 if (isset($id)) {
     $products = new Productos(null, null, null, null,null,null,null,null, null, null,null, $pdo);
     
-    $result = $products->findProductById($id);
+    $result = $products->findProductByIdUsuario($id);
     echo json_encode($result); 
 }

@@ -4,7 +4,7 @@ require '../conexionSQL.php';
 session_start();
 header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    header('Location: /interfaz/public-html/register.html');
+    http_response_code(405);
     exit;
 }
 $idEmpresa = $_SESSION['id'];

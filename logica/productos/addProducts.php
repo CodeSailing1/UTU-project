@@ -15,6 +15,6 @@ $database = 'sigto';
 $ConexionDB = new conexionSQL($server, $database, $username, $password);
 $pdo = $ConexionDB->getPdo();
 
-$product = new Productos($_POST['name'], $_POST['price'], $_POST['category'], $_POST['description'], null, null, false, null, null, false, $pdo);
+$product = new Productos($_POST['name'], $_POST['price'], $_POST['category'], $_POST['description'], null, null, false, null, null,null, false, $pdo);
 $result = $product->addProduct($_FILES['img']);
 echo $result; 

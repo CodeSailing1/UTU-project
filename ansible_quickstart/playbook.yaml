@@ -2,42 +2,85 @@
   hosts: myhosts
   become: true
   tasks:
-    - name: update server
-      ansible.builtin.yum:
+    - name: Update server packages
+      ansible.builtin.dnf:
         name: '*'
         state: latest
         update_only: true
-    - name: install httpd
-      ansible.builtin.yum:
+
+    - name: Install httpd
+      ansible.builtin.dnf:
         name: httpd
         state: latest
-    - name: start httpd
+
+    - name: Start and enable httpd
       ansible.builtin.service:
         name: httpd
-        state: start
-    - name: install php
-      ansible.builtin.yum:
+        state: started
+        enabled: true
+
+    - name: Install PHP
+      ansible.builtin.dnf:
         name: php
         state: latest
-    - name: start php
+
+    - name: Start and enable PHP-FPM
       ansible.builtin.service:
         name: php-fpm
         state: started
-    - name: configure firewall
-      firewalld:
-        name: httpd
+        enabled: true
+
+    - name: Allow HTTP service in firewalld
+      ansible.builtin.firewalld:
+        service: http
         zone: public
+        permanent: true
         state: enabled
-    - name: restart firewalld
+
+    - name: Restart firewalld to apply changes
       ansible.builtin.service:
         name: firewalld
         state: restarted
-    - name: install mysql
-      ansible.builtin.yum:
+
+    - name: Install MySQL
+      ansible.builtin.dnf:
         name: mysql-server
         state: latest
-    - name: start mysql
+
+    - name: Start and enable MySQL
       ansible.builtin.service:
-      service:
-        name: mysql
+        name: mysqld
         state: started
+        enabled: true
+
+    - name: Create webServer backup cron job
+      ansible.builtin.cron:
+        name: "Backup webServer"
+        job: "/cronSv.sh"
+        state: present
+        minute: "0"
+        hour: "0"
+
+    - name: Create webPage backup cron job
+      ansible.builtin.cron:
+        name: "Backup webpage"
+        job: "/cronWeb.sh"
+        state: present
+        minute: "0"
+        hour: "0"
+        day: "1"
+
+    - name: Create dataBase backup cron job
+      ansible.builtin.cron:
+        name: "Backup dataBase"
+        job: "/cronDb.sh"
+        state: present
+        minute: "0"
+
+    - name: Create logs backup cron job
+      ansible.builtin.cron:
+        name: "Backup logs system"
+        job: "/cronLogs.sh"
+        state: present
+        minute: "0"
+        hour: "0"

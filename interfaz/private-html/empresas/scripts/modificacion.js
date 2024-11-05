@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("modABM");
+    console.log(form);
     const URL_MODIFY = "/UTU-project/logica/productos/updateProducts.php";
     const observer = new MutationObserver(() => {
         getElements();
@@ -22,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function modifyProduct(form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-
             const forMod = new FormData(form);
+            console.log(forMod);
             fetch(URL_MODIFY, {
                 method: "POST",
                 body: forMod,

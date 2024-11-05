@@ -16,7 +16,7 @@
     <?php
     session_start();
     if (!isset($_SESSION['loginEmpresa'])) {
-        header("location: /UTU-project/interfaz/public-html/index.html");
+        header("location: /UTU-project/interfaz/public-html/index.php");
     }
     ?>
     <?php include '../header.php'; ?>
@@ -26,7 +26,7 @@
         <a class="btn btn-outline-success">Inicio</a>
         <a class="btn btn-outline-success" href="./abm/agregarEmpresas.php">ABM</a>
         <a class="btn btn-outline-success" href="../inventario.php">Inventario</a>
-        <a class="btn btn-outline-success">Estadisticas</a>
+        <a class="btn btn-outline-success" href="../estadisticas.php">Estadisticas</a>
         <a class="btn btn-outline-success">Perfil</a>
     </div>
     <main class="col ">
@@ -34,6 +34,8 @@
             <a href="agregarEmpresas.php" class="btn btn-outline-success me-2">agregar</a>
             <a href="eliminarEmpresas.php" class="btn btn-outline-secondary me-2">eliminar</a>
             <a href="modificarEmpresas.php" class="btn btn-outline-secondary me-2">modificar</a>
+            <a href="activarEmpresas.php" class="btn btn-outline-secondary me-2">activar</a>
+
         </aside>
         <div class="row d-flex justify-content-center my-5" style="width: 100wv; height:100hv;">
 
@@ -51,15 +53,18 @@
                         Categoria
                         <select name="category" class="form-control">
                             <option value="----">----</option>
-                            <option value="Juguetes">Juegos</option>
-                            <option value="Tecnologia">consolas</option>
-                            <option value="Maquinaria">musica</option>
-                            <option value="Escolares">libros</option>
-                            <option value="Comida">celulares</option>
-                            <option value="Comida">ropa</option>
-                            <option value="Comida">muebles</option>
-                            <option value="Comida">deportes</option>
-                            <option value="Comida">joyeria</option>
+                            <option value="">----</option>
+                            <option value="">juegos y consolas</option>
+                            <option value="">musica</option>
+                            <option value="">libros</option>
+                            <option value="">celulares</option>
+                            <option value="">ropa</option>
+                            <option value="">muebles</option>
+                            <option value="">deportes</option>
+                            <option value="">joyeria</option>
+                            <option value="">herramientas</option>
+                            <option value="">salud</option>
+                            <option value="">belleza</option>
                         </select>
                     </label>
                     <label>
@@ -86,6 +91,8 @@
         </div>
     </main>
     <script src="../scripts/altas.js"></script>
+<script src="../scripts/logout.js"></script>
+
 </body>
 
 </html>

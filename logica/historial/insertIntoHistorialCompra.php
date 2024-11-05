@@ -33,8 +33,8 @@ try {
     $ConexionDB = new conexionSQL($server, $database, $username, $password);
     $pdo = $ConexionDB->getPdo();
     $carrito = new Historial($idUsuario, $pdo);
-    $carrito->insertIntoHistorialCompra($idProducto, $precio, $cantidad);
-    echo json_encode(['success'=> true,'message'=> 'Product viewed succesfully']);
+    $hola = $carrito->insertIntoHistorialCompra($idProducto, $precio, $cantidad);
+    echo json_encode($hola);
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }

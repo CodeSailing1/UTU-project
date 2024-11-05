@@ -20,7 +20,7 @@ include 'header.php' ?>
         <a class="btn btn-outline-success">Inicio</a>
         <a class="btn btn-outline-success" href="./abm/agregarEmpresas.php">ABM</a>
         <a class="btn btn-outline-success" href="./empresas/inventario.php">Inventario</a>
-        <a class="btn btn-outline-success">Estadisticas</a>
+        <a class="btn btn-outline-success" href="./estadisticas.php">Estadisticas</a>
         <a class="btn btn-outline-success">Perfil</a>
     </div>
     <main class="col-2">
@@ -37,5 +37,7 @@ include 'header.php' ?>
     </main>
     <script src="../src/scripts/history.js"></script>
     <script src="../src/scripts/showProduts.js"></script>
+<script src="./scripts/logout.js"></script>
+
 </body>
 </html>

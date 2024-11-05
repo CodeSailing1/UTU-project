@@ -31,8 +31,10 @@ try {
     $ConexionDB = new conexionSQL($server, $database, $username, $password);
     $pdo = $ConexionDB->getPdo();
     $carrito = new Historial($idUsuario, $pdo);
-    $carrito->insertIntoHistorialVista($idProducto);
-    echo json_encode(['success'=> true,'message'=> 'Product viewed succesfully']);
+    if($carrito->insertIntoHistorialVista($idProducto))
+    {
+        echo json_encode(['success'=> true,'message'=> 'Product viewed succesfully']);
+    }
 } catch (Exception $e) {
     echo json_encode(['error' => $e->getMessage()]);
 }

@@ -62,10 +62,10 @@ class CarritoDeCompras
                 $stm->bindParam(':estado', $estado);
                 $stm->bindParam(':idUsuario', $this->idUsuario);
                 if ($stm->execute()) {
-                    return ['success' => true, 'message' => 'Cantidad actualizada correctamente'];
+                    return json_encode(['success' => true, 'message' => 'Cantidad actualizada correctamente']);
                 }
             } else {
-                return json_encode(['error' => 'No se pudo agregar el producto']);
+                return json_encode(['success' => false, 'message' => 'Cantidad no actualizada correctamente']);
             }
         } else {
             $rowDataCant = $stm->fetch(PDO::FETCH_ASSOC);
@@ -79,7 +79,7 @@ class CarritoDeCompras
             {
                 return json_encode(['success' => true, 'message' => 'Cantidad actualizada correctamente']);
             } else {
-                return json_encode(['error' => 'No se pudo actualizar la cantidad']);
+                return json_encode(['success' => false, 'message' => 'no se pudo actualizar correctamente']);
             }
         }
     }
@@ -129,8 +129,6 @@ class CarritoDeCompras
     }
     public function boughtProducts()
     {
-        require_once '../historial/Historial.php';
-        
         $stm  = $this->pdo->prepare('DELETE FROM agrega WHERE idCarritoCompras = :idUsuario');
         $stm->bindParam(':idUsuario', $this->idUsuario);
         if($stm->execute())
@@ -139,7 +137,7 @@ class CarritoDeCompras
         }
         else 
         {
-            return json_encode(['success' => false, 'error' => 'Failed to execute query']);
+            return false;
         }
     }
     public function showCart()

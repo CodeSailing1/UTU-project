@@ -10,7 +10,7 @@ class Comentarios
     }
     public function showComments()
     {
-        $stm = $this->pdo->prepare("SELECT * FROM comenta c JOIN usuario u ON c.idUsuario = u.idUsuario WHERE idProducto =  :idProducto");
+        $stm = $this->pdo->prepare("SELECT * FROM comenta c JOIN usuario u ON c.idUsuario = u.idUsuario WHERE idProducto =  :idProducto order by c.fechaComentario desc ");
         $stm->bindParam(':idProducto', $this->idProducto);
         if($stm->execute())
         {

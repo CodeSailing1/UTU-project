@@ -12,12 +12,8 @@
     </a>
     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
     <a class="navbar-brand " href="/UTU-project/interfaz/public-html/index.php">
-      <img src="#" alt="Logo" class="logo" height="75">
+      <img src="/UTU-project/interfaz/src/img/Claptransparente.png" alt="Logo" class="logo" height="75">
     </a>
-      <!-- Formulario de búsqueda (solo visible en pantallas grandes) -->
-
-
-      <!-- Iconos de carrito de compras y ayuda -->
 
         <!-- Verificación de sesión -->
         <?php if (isset($_SESSION['loginEmpresa'])): ?>
@@ -56,4 +52,4 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/UTU-project/interfaz/src/scripts/usuario/logout.js"></script>
+<script src="./scripts/logout.js"></script>

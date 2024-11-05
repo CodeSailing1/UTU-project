@@ -29,25 +29,55 @@
             </input>
             <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
                 aria-current="page">
-                Juguetes
+                juegos y consolas
             </button>
             <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
                 aria-current="page">
-                Tecnologia
+                musica
             </button>
             <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
                 aria-current="page">
-                Maquinaria
+                libros
             </button>
             <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
                 aria-current="page">
-                Escolares
+                celulares
             </button>
             <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
                 aria-current="page">
-                Comida
+                ropa
 
             </button>
+        <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                        aria-current="page">
+                        muebles
+
+                    </button>
+                <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                                aria-current="page">
+                                deportes
+
+                            </button>
+                        <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                                        aria-current="page">
+                                        joyeria
+
+                                    </button>
+                                <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                                                aria-current="page">
+                                                herramientas
+
+                                            </button>
+                                        <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                                                        aria-current="page">
+                                                        salud
+
+                                                    </button>
+                                                <button type="button" class="category my-2 list-group-item categories btn btn-light w-100 p-100"
+                                                                                                        aria-current="page">
+                                                                                                        belleza
+
+                                                                                                    </button>
         </div>
     </aside>
     <main class="container col">

@@ -18,16 +18,27 @@ include 'header.php' ?>
         <a class="btn btn-outline-success">Inicio</a>
         <a class="btn btn-outline-success" href="./abm/agregarEmpresas.php">ABM</a>
         <a class="btn btn-outline-success" href="./inventario.php">Inventario</a>
-        <a class="btn btn-outline-success">Estadisticas</a>
+        <a class="btn btn-outline-success" href="./estadisticas.php">Estadisticas</a>
         <a class="btn btn-outline-success">Perfil</a>
     </div>
     <div class="col-11">
     <main class="container col">
-        <section id="productsContainer" class="container row m-3 overflow-auto" style="height:80vh">
+        <div class="d-flex">
+                            <form class="col d-flex w-50" role="search" id="finder">
+                                <input class="form-control " type="search" placeholder="Search" aria-label="Search"
+                                    id="finderResult">
+                                <button class="btn btn-outline-success" type="submit" id="search">Search</button>
+                            </form>
+                        </div>
+        <section id="productContainer" class="container row m-3 overflow-auto" style="height:80vh; width: 100vw">
 
         </section>
     </main>
     </div>
-    <script src="./scripts/showInventario.js"></script>
+    <script src="./scripts/showAllInventario.js"></script>
+    <script src="./scripts/finder.js"></script>
+    <script src="./scripts/updateURLName.js"></script>
+<script src="./scripts/logout.js"></script>
+
 </body>
 </html>

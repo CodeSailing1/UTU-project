@@ -1,5 +1,6 @@
 <?php
 require_once '../DataValidator.php';
+require_once '../conexionSQL.php';
 require_once 'Usuario.php';
 session_start();
 $server = 'localhost';

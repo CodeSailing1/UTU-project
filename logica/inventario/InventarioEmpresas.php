@@ -24,7 +24,7 @@ class InventarioEmpresas
     }
     public function showInventario ()
     {
-        $stm = $this->pdo->prepare("SELECT c.stock, p.precioProducto, p.idProducto, p.nombreProducto, p.imagenProducto FROM empresa e JOIN inventario i JOIN contiene c JOIN producto p ON e.idEmpresa = i.idInventario AND i.idInventario = c.idInventario AND c.idProducto = p.idProducto WHERE e.idEmpresa = :idEmpresa");
+        $stm = $this->pdo->prepare("SELECT c.stock, p.precioProducto, p.idProducto, p.nombreProducto, p.imagenProducto, p.descripcionProducto FROM empresa e JOIN inventario i JOIN contiene c JOIN producto p ON e.idEmpresa = i.idInventario AND i.idInventario = c.idInventario AND c.idProducto = p.idProducto WHERE e.idEmpresa = :idEmpresa AND p.inactivoProducto != 1");
         $stm->bindParam(':idEmpresa', $this->idEmpresa);
         $inventarioItems = [];
 
@@ -99,5 +99,27 @@ class InventarioEmpresas
                 }
                 return json_encode(['success' => true, 'message' => 'Cantidad actualizada correctamente']);
             }
+    }
+    public function showAllInventario ()
+    {
+        $stm = $this->pdo->prepare("SELECT c.stock, p.* FROM empresa e JOIN inventario i JOIN contiene c JOIN producto p ON e.idEmpresa = i.idInventario AND i.idInventario = c.idInventario AND c.idProducto = p.idProducto WHERE e.idEmpresa = :idEmpresa");
+        $stm->bindParam(':idEmpresa', $this->idEmpresa);
+        $inventarioItems = [];
+
+        if ($stm->execute()) {
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($row);
+        }
+    }
+    public function showInventarioInactivo ()
+    {
+        $stm = $this->pdo->prepare("SELECT c.stock, p.* FROM empresa e JOIN inventario i JOIN contiene c JOIN producto p ON e.idEmpresa = i.idInventario AND i.idInventario = c.idInventario AND c.idProducto = p.idProducto WHERE e.idEmpresa = :idEmpresa AND p.inactivoProducto = 1");
+        $stm->bindParam(':idEmpresa', $this->idEmpresa);
+        $inventarioItems = [];
+
+        if ($stm->execute()) {
+            $row = $stm->fetchAll(PDO::FETCH_ASSOC);
+            return json_encode($row);
+        }
     }
 }

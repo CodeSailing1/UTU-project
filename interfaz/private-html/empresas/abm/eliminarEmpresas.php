@@ -24,9 +24,10 @@
 
     <div class="nav-item d-flex flex-column gap-3 col-1 bg-body-tertiary hv-100">
         <a class="btn btn-outline-success">Inicio</a>
-        <a class="btn btn-outline-success">Productos</a>
-        <a class="btn btn-outline-success">Estadisticas</a>
-        <a class="btn btn-outline-success">Perfil</a>
+                <a class="btn btn-outline-success" href="./abm/agregarEmpresas.php">ABM</a>
+                <a class="btn btn-outline-success" href="../inventario.php">Inventario</a>
+                <a class="btn btn-outline-success" href="../estadisticas.php">Estadisticas</a>
+                <a class="btn btn-outline-success">Perfil</a>
     </div>
     <main class="col ">
         <aside id="options" class="list-group d-flex flex-row justify-content-center align-items-center gap-5"
@@ -34,6 +35,8 @@
             <a href="agregarEmpresas.php" class="btn btn-outline-secondary me-2">agregar</a>
             <a href="eliminarEmpresas.php" class="btn btn-outline-success me-2">eliminar</a>
             <a href="modificarEmpresas.php" class="btn btn-outline-secondary me-2">modificar</a>
+            <a href="activarEmpresas.php" class="btn btn-outline-secondary me-2">activar</a>
+
         </aside>
 
         <div class="row d-flex justify-content-center my-5" style="width: 100wv; height:100hv;">
@@ -74,6 +77,8 @@
     <script src="../scripts/showProductById.js"></script>
     <script src="../scripts/udateURL.js"></script>
     <script src="../scripts/bajas.js"></script>
+<script src="../scripts/logout.js"></script>
+
 </body>
 
 </html>

@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(data.success){
                 console.log('Comentario agregado exitosamente');
                 location.reload();
+            } else {
+                window.location.href = '/UTU-project/interfaz/public-html/login.html';
             }
         })
         .catch(error => {

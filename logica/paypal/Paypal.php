@@ -4,19 +4,19 @@ class PayPal
     private $clientId;
     private $clientIdSecret;
 
-    public function __construct ($clientId, $clientIdSecret)
+    public function __construct($clientId, $clientIdSecret)
     {
         $this->clientId =  $clientId;
         $this->clientIdSecret = $clientIdSecret;
     }
 
-    public function getAccessToken ()
+    public function getAccessToken()
     {
         // Credenciales de la aplicación PayPal (clientId y secret)
 
-    $clientId = $this->clientId;
-    $clientIdSecret = $this->clientIdSecret;
-    // URL del endpoint de PayPal para obtener el token
+        $clientId = $this->clientId;
+        $clientIdSecret = $this->clientIdSecret;
+        // URL del endpoint de PayPal para obtener el token
         $url = "https://api.sandbox.paypal.com/v1/oauth2/token";
         $ch = curl_init(); // Inicializa una nueva sesión cURL
         // Configuración de cURL para la solicitud
@@ -50,14 +50,14 @@ class PayPal
         $baseUrl = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . "/UTU-project/logica/paypal";
         $accessToken = $this->getAccessToken();
         $url = "https://api.sandbox.paypal.com/v1/payments/payment";
-    
+
         $data = json_encode([
             "intent" => "sale",
             "payer" => ["payment_method" => "paypal"],
             "transactions" => [
                 [
                     "amount" => ["total" => $amount, "currency" => $currency],
-                "description" => $description
+                    "description" => $description
                 ]
             ],
             "redirect_urls" => [
@@ -65,7 +65,7 @@ class PayPal
                 "cancel_url" => $baseUrl . "/cancel.html" // URL de cancelación usando la variable base
             ]
         ]);
-    
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -75,19 +75,19 @@ class PayPal
             "Content-Type: application/json",
             "Authorization: Bearer $accessToken"
         ]);
-    
+
         $response = curl_exec($ch);
         if (curl_errno($ch)) {
             throw new Exception('Error en cURL: ' . curl_error($ch));
         }
-    
+
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($httpCode !== 201) { // 201 Created is the expected response for successful payment creation
             throw new Exception('Error en la creación del pago: ' . $response);
         }
         $result = json_decode($response);
         curl_close($ch);
-    
+
         if (!empty($result->links)) {
             foreach ($result->links as $link) {
                 if ($link->rel == 'approval_url') {
@@ -112,7 +112,7 @@ class PayPal
         // Inicializar cURL
         $ch = curl_init();
 
-    // Configurar opciones de cURL
+        // Configurar opciones de cURL
         curl_setopt($ch, CURLOPT_URL, $url); // Establece la URL para la solicitud
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Para recibir la respuesta como string
         curl_setopt($ch, CURLOPT_POST, true); // Método POST
@@ -136,41 +136,48 @@ class PayPal
         // Cerrar la conexión cURL
         curl_close($ch);
 
-        // Verificar si el pago fue aprobado
-{
-    // ...
+        // Veificar si el pago fue aprobado
+        
+            // ...
 
-    // Verificar si el pago fue aprobado
-    if ($result->state == "approved") {
-    require_once '../carritoDeCompras/carritoDeCompras.php';
-    require_once '../historial/Historial.php';
-    require_once '../pedido/Pedido.php';
-    $metodoDePago = 'PayPal';
-    $tipo = 'Delivery';
-    $pedido = new Pedido($idUsuario, $metodoDePago, $tipo, $pdo );
-    $carrito = new CarritoDeCompras($idUsuario, $pdo);
-
-    $historial = new Historial($idUsuario, $pdo);
-
-    try {
-        foreach ($carrito->showCart() as $item) {
-            $precio = $item['precioProducto'] * $item['cantidad'];
-            $success = $historial->insertIntoHistorialCompra($item['idProducto'], $precio, $item['cantidad']);
-            if (!$success) {
-                throw new Exception('Failed to insert into purchase history for product ID: ' . $item['idProducto']);
+            // Verificar si el pago fue aprobado
+            if ($result->state === "approved") {
+                require_once '../carritoDeCompras/carritoDeCompras.php';
+                require_once '../historial/Historial.php';
+                require_once '../pedido/Pedido.php';
+            
+                $metodoDePago = 'PayPal';
+                $tipo = 'Delivery';
+                
+                // Initialize the required classes
+                $pedido = new Pedido($idUsuario, $metodoDePago, $tipo, $pdo);
+                $carrito = new CarritoDeCompras($idUsuario, $pdo);
+                $historial = new Historial($idUsuario, $pdo);
+            
+                try {
+                    // Process each item in the cart
+                    foreach ($carrito->showCart() as $item) {
+                        $precio = $item['precioProducto'] * $item['cantidad'];
+                        
+                        // Insert item into purchase history
+                        $success = $historial->insertIntoHistorialCompra($item['idProducto'], $precio, $item['cantidad']);
+                        if (!$success) {
+                            throw new Exception('Failed to insert into purchase history for product ID: ' . $item['idProducto']);
+                        }
+                        // Create an order for the item
+                        $pedido->createPedido($item['idProducto']);
+                    }
+                    // Mark items in the cart as purchased
+                    return $carrito->boughtProducts();
+                } catch (Exception $e) {
+                    // Log the error message and handle the exception
+                    error_log('Error processing payment: ' . $e->getMessage());
+                    return false;
+                }
+            } else {
+                throw new Exception('Error en la confirmación del pago');
             }
-            $pedido->createPedido($item['idProducto']);
-        }
-        return $carrito->boughtProducts();
-
-    } catch (Exception $e) {
-        // Loguea el error o haz algo para manejar la excepción
-        error_log($e->getMessage());
-        return false;
+            
+        
     }
-        } else {
-            throw new Exception('Error en la confirmación del pago');
-        }
-    }
-        }
-    }
+}

@@ -15,28 +15,33 @@
 <body class="row">
     <?php
     session_start();
-    
+    if (!isset($_SESSION['loginEmpresa'])) {
+        header("location: /UTU-project/interfaz/public-html/index.php");
+    }
     ?>
     <?php include '../header.php' ?>
 
 
     <div class="nav-item d-flex flex-column gap-3 col-1 bg-body-tertiary hv-100">
         <a class="btn btn-outline-success">Inicio</a>
-        <a class="btn btn-outline-success">Productos</a>
-        <a class="btn btn-outline-success">Estadisticas</a>
-        <a class="btn btn-outline-success">Perfil</a>
+                <a class="btn btn-outline-success" href="./abm/agregarEmpresas.php">ABM</a>
+                <a class="btn btn-outline-success" href="../inventario.php">Inventario</a>
+                <a class="btn btn-outline-success" href="../estadisticas.php">Estadisticas</a>
+                <a class="btn btn-outline-success">Perfil</a>
     </div>
     <main class="col ">
         <aside id="options" class="list-group d-flex flex-row justify-content-center align-items-center gap-5"
             style="width:100wv">
             <a href="agregarEmpresas.php" class="btn btn-outline-secondary me-2">agregar</a>
-            <a href="eliminarEmpresas.php" class="btn btn-outline-success me-2">eliminar</a>
-            <a href="modificarEmpresas.php" class="btn btn-outline-secondary me-2">modificar</a>
+            <a href="eliminarEmpresas.php" class="btn btn-outline-secondary me-2">eliminar</a>
+            <a href="modificarEmpresas.php" class="btn btn-outline-success me-2">modificar</a>
+            <a href="activarEmpresas.php" class="btn btn-outline-secondary me-2">activar</a>
+
         </aside>
 
         <div class="row d-flex justify-content-center my-5" style="width: 100wv; height:100hv;">
 
-            <section class="row col-5 d-flex justify-content-center align-items-center">
+            <section class="row col-5 d-flex justify-content-center align-items-center" >
                 <div class="d-flex">
                     <form class="col d-flex w-50" role="search" id="finder">
                         <input class="form-control " type="search" placeholder="Search" aria-label="Search"
@@ -44,7 +49,7 @@
                         <button class="btn btn-outline-success" type="submit" id="search">Search</button>
                     </form>
                 </div>
-                <div id="productContainer" class="container row m-3 overflow-auto" style="height:500px">
+                 <div id="products" class="container row m-3 overflow-auto" style="height:500px">
                     
                 </div>
             </section>
@@ -76,11 +81,17 @@
                             Categoria
                             <select class="form-control" name="category">
                                 <option value="">----</option>
-                                <option value="">Juguetes</option>
-                                <option value="">Tecnologia</option>
-                                <option value="">Maquinaria</option>
-                                <option value="">Escolares</option>
-                                <option value="">Comida</option>
+                                <option value="">juegos y consolas</option>
+                                <option value="">musica</option>
+                                <option value="">libros</option>
+                                <option value="">celulares</option>
+                                <option value="">ropa</option>
+                                <option value="">muebles</option>
+                                <option value="">deportes</option>
+                                <option value="">joyeria</option>
+                                <option value="">herramientas</option>
+                                <option value="">salud</option>
+                                <option value="">belleza</option>
                             </select>
                         </label>
                         <label>
@@ -91,20 +102,22 @@
                             Imagen
                             <input type="file" name="img"class="form-control-file">
                         </label>
-                    </form>
+                    <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">No</button>
+                                            <button type="submit" class="btn btn-secundary" id="modificarProducto" form="modABM">Si</button>
+                                        </div>
                     </form>
 
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">No</button>
-                        <button type="submit" class="btn btn-secundary" id="modificarProducto" form="modABM">Si</button>
-                    </div>
-                    </>
+
                 </div>
             </div>
+        </div>
     </main>
     <script src="../scripts/showProductByIdMod.js"></script>
     <script src="../scripts/udateURL.js"></script>
     <script src="../scripts/modificacion.js"></script>
+    <script src="../scripts/logout.js"></script>
+
 </body>
 
 </html>

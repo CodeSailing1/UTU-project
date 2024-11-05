@@ -107,7 +107,7 @@ class Usuario
             {
                 
                 $hashedPasswd = password_hash($this -> contraseniaUsuario, PASSWORD_DEFAULT);
-                $stm = $this->pdo->prepare("INSERT INTO usuario (nombreUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario, direccionUsuario, fotoDePerfilUsuario) VALUES (:nombre, :email, :phone, :passwd,:direccion, :foto)");
+                $stm = $this->pdo->prepare("INSERT INTO Usuario (nombreUsuario, emailUsuario, telefonoUsuario, contraseniaUsuario, direccionUsuario, fotoDePerfilUsuario) VALUES (:nombre, :email, :phone, :passwd,:direccion, :foto)");
 
         
                 $stm->bindParam(':nombre', $this ->nombreUsuario);
@@ -146,58 +146,66 @@ class Usuario
         }
     }
     public function loginUser()
-    {
-        $validator = new DataValidator($this->pdo);
-        $values = [
-            'email' => false,
-            'passwd' => false
-        ];
-        $userData = [
-            "email" => $this -> emailUsuario,
-            "passwd" => $this -> contraseniaUsuario
-        ];
-        foreach ($userData as $key => $value) {
-            if(!$validator->dataValidator($key, $value)){
-                echo json_encode('error: invalid data format');
-                return;
-            }
-            $values[$key] = true;
-            if(!in_array(false, $values))
-            {
-                $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE emailUsuario = :email");
-                $stm->bindParam(':email', $userData['email']);
-                if ($stm->execute()) {
-                    $affectedRows = $stm->rowCount();
-                    if ($affectedRows === 0) {
-                        echo json_encode(["ERROR: " => "User not found"]);
-                        exit();
+{
+    ob_clean();  // Clear any buffered output at the start
+    $validator = new DataValidator($this->pdo);
+    $values = [
+        'email' => false,
+        'passwd' => false
+    ];
+    $userData = [
+        "email" => $this->emailUsuario,
+        "passwd" => $this->contraseniaUsuario
+    ];
+
+    foreach ($userData as $key => $value) {
+        if (!$validator->dataValidator($key, $value)) {
+            echo json_encode(['error' => 'Invalid data format']);
+            exit();
+        }
+        $values[$key] = true;
+
+        // Check if validation passed for all fields
+        if (!in_array(false, $values)) {
+            $stm = $this->pdo->prepare("SELECT * FROM usuario WHERE emailUsuario = :email");
+            $stm->bindParam(':email', $userData['email']);
+            
+            if ($stm->execute()) {
+                if ($stm->rowCount() === 0) {
+                    echo json_encode(["error" => "User not found"]);
+                    exit();
+                }
+                
+                $userRow = $stm->fetch(PDO::FETCH_ASSOC);
+                if (!$userRow) {
+                    echo json_encode(['error' => 'User not found']);
+                    exit();
+                }
+                
+                if (password_verify($userData['passwd'], $userRow['contraseniaUsuario'])) {
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
                     }
-                    $userRow = $stm->fetch(PDO::FETCH_ASSOC);
-                    if (!$userRow) {
-                        echo json_encode(['error' => 'User not found']);
-                        exit;
-                    }
-                    if (password_verify($userData['passwd'], $userRow['contraseniaUsuario'])) {    
-                        if (session_status() === PHP_SESSION_NONE) {
-                            session_start();
-                        }
-                        $_SESSION['idUsuario'] = $userRow['idUsuario'];
-                        $_SESSION['nombre'] = $userRow['nombreUsuario'];
-                        $_SESSION['email'] = $userRow['emailUsuario'];
-                        $_SESSION['phone'] = $userRow['telefonoUsuario'];
-                        $_SESSION['direction']  = $userRow['direccionUsuario'];
-                        $_SESSION['imagenUsuario']  = $userRow['fotoDePerfilUsuario'];
-                        $_SESSION['login'] = true;
-                        echo json_encode(["success" => true, "message" => "User logged in successfully"]);
-                        exit;
-                    } else {
-                        echo json_encode(['error' => 'Invalid password']);
-                        exit;
-                    } 
+                    
+                    $_SESSION['idUsuario'] = $userRow['idUsuario'];
+                    $_SESSION['nombre'] = $userRow['nombreUsuario'];
+                    $_SESSION['email'] = $userRow['emailUsuario'];
+                    $_SESSION['phone'] = $userRow['telefonoUsuario'];
+                    $_SESSION['direction'] = $userRow['direccionUsuario'];
+                    $_SESSION['imagenUsuario'] = $userRow['fotoDePerfilUsuario'];
+                    $_SESSION['login'] = true;
+
+                    echo json_encode(["success" => "User logged in successfully"]);
+                    exit();
+                } else {
+                    echo json_encode(['error' => 'Invalid password']);
+                    exit();
                 }
             }
         }
     }
+}
+
     public function logoutUser()
     {
         try {

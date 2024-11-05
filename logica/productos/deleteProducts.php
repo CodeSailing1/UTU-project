@@ -21,5 +21,6 @@ $password = '';
 $database = 'sigto';
 $ConexionDB = new conexionSQL($server, $database, $username, $password);
 $pdo = $ConexionDB->getPdo();
-$product = new Productos(null, null, null, null,null,null,null,null,null,null, $pdo); 
-$product->deleteProduct($data['id']);
+$product = new Productos(null, null, null, null,null,null,null,null,null,null,null, $pdo);
+$response = $product->deleteProduct($data['id']);
+echo $response;

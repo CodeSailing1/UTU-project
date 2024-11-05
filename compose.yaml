@@ -1,38 +1,33 @@
-version: "3.0"
-networks:
+version: '3.8'
+
 services:
-  web-app-interface:
-    image: http:latest
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: php:8.1-apache  
+    container_name: php_apache_server
     ports:
-      - "8080:8080"
-    depends_on:
-      - db
-      - web-app-logic
-    networks:
-      - web_network
-
-  web-app-logic:
-    image: php:latest
+      - "8080:80"
     volumes:
-      -./persistencia/mysql:/usr/local/httpd/www/codesailing
-    ports:
-      -"8080:80"
+      - ./frameworks:/var/www/html/UTU-project/frameworks
+      - ./interfaz:/var/www/html/UTU-project/interfaz
+      - ./logica:/var/www/html/UTU-project/logica
+      - ./persistencia:/var/www/html/UTU-project/persistencia
     depends_on:
       - db
-    networks:
-      - web_network
-      - connection_network
-
+    
   db:
     image: mysql:latest
+    container_name: mysql_db
     environment:
-      MYSQL_DATABASE: "sigto"
-      MYSQL_USER: "root"
-      MYSQL_PASSWORD: ""
-    volumes:
-    - ./persistencia/mysql/:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: root  # Password for the root user
+      MYSQL_DATABASE: sigto       # Database to create
     ports:
-      -"3306:3306"
-    networks:
-      - web_network
-      - connection_network
+      - "33060:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./others/sigto.sql:/docker-entrypoint-initdb.d/sigto.sql
+
+volumes:
+  db_data:

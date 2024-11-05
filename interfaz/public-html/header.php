@@ -48,7 +48,7 @@
           </a>
         </li>
         <li class="list-group-item border-0 bg-body-tertiary p-0">
-          <a href="./help.html" class="btn btn-outline-success me-2">
+          <a href="./help.php" class="btn btn-outline-success me-2">
             <img src="../src/img/svgs/help.svg" alt="Help Icon">
           </a>
         </li>
@@ -99,8 +99,13 @@
       </div>
       <div class="d-flex justify-content-between align-items-center">
       <button type="button" class="btn btn-outline-success me-2" id="buyCart">Comprar</button>
-      <p class="m-0" id="totalPrice"> 
+      <select>
+          <option value="">PickUp</option>
+          <option value="">Delivery</option>
+        </select>
+      <p class="m-0" id="totalPrice">
       </p>
+
       </div>
     </div>
   <?php else: ?>

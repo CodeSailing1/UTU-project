@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionComments.innerHTML = '';
         data.forEach(comment => {
             const murkUp = `
-                <article class="bg-body-tertiary rounded-2 p-2 my-2" heigth="1000px">
+                <article class="bg-body-tertiary rounded-2 p-2 my-2 " heigth="1000px" width="100px">
                 <h3>${comment.nombreUsuario}</h3>
-                    <p>${comment.textoComentario}</p>
+                    <p class="text-break">${comment.textoComentario}</p>
                     <span>${comment.fechaComentario}</span>
                 </article>
             `;

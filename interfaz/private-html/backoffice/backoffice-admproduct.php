@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="chart.umd.min.js"></script>
+    <script src="/UTU-project/frameworks/chart.umd.min.js"></script>
     <title>Backoffice - Clap</title>
 </head>
 
@@ -99,12 +99,12 @@
                         <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">No</button>
                         <button type="submit" class="btn btn-secundary" id="modificarProducto" form="modABM">Si</button>
                     </div>
-                    </>
+                    </div>
                 </div>
             </div>
     </main>
     <script src="./scripts/abmProductos/modificacion.js"></script>
-    <script src="./scripts/abmProductos/cambiarPestanias.js"></script>
+    <script src="/UTU-project/interfaz/private-html/cambiarPestanias.js"></script>
     <script src="./scripts/abmProductos/listadoProductos.js"></script>
     <script src="./scripts/abmProductos/showProducts.js"></script>
 </body>

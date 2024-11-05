@@ -32,7 +32,7 @@
                 <span id="charactersShown">300</span>
             </div>
         </form>
-        <article id="sectionComments" class="w-100">
+        <article id="sectionComments" class="container w-100" style="height: 50vh; overflow: auto;">
         </article>
     </section>
     <?php
