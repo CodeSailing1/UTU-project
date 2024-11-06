@@ -10,6 +10,7 @@ class Historial
     }
     public function createHistorial()
     {
+        date_default_timezone_set('America/Montevideo');
         $fecha = date("Y-m-d H:m:s");
         $stm = $this->pdo->prepare('INSERT INTO historial (idHistorial, idUsuario, fechaHistorial) VALUES (:idHistorial,  :idUsuario, :fecha)');
         $stm->bindParam(':idHistorial', $this->idUsuario) ;
@@ -62,6 +63,7 @@ class Historial
                 }
         } else {
             // New entry case
+            date_default_timezone_set('America/Montevideo');
             $fecha = date("Y-m-d H:i:s");
             $stm = $this->pdo->prepare('INSERT INTO Guarda (idHistorial, idProducto, precioCompra, cantidad, tipo, productoHistorial) VALUES (:idHistorial, :idProducto, :precioCompra, :cantidad, :tipo, :productoHistorial)');
             $stm->bindParam(':idHistorial', $this->idUsuario);
@@ -109,6 +111,7 @@ class Historial
             }
         } else {
             $tipo = 'Visita';
+            date_default_timezone_set('America/Montevideo');
             $fecha = date("Y-m-d H:i:s");
             $stm = $this->pdo->prepare('INSERT INTO guarda (idHistorial, idProducto, precioCompra, cantidad, tipo, productoHistorial) VALUE (:idHistorial,  :idProducto, null, 1, :tipo, :productoHistorial)');
             $stm->bindParam(':idHistorial', $this->idUsuario);
