@@ -20,6 +20,7 @@ class Comentarios
     }
     public function addComment($idUsuario, $comentario)
     {
+        date_default_timezone_set('America/Montevideo');
         $date = date('Y-m-d H:i:s');
         $stm =  $this->pdo->prepare("INSERT INTO comenta (idUsuario, idProducto, textoComentario, fechaComentario) VALUES  (:idUsuario, :idProducto, :comentario, :fechaComentario)");
         $stm->bindParam(':idUsuario', $idUsuario);
