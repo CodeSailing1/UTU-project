@@ -1,53 +1,65 @@
+<?php
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="swiper.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <title>Clap</title>
 </head>
-<body>
-    <?php
-    session_start();
-    include_once '/xampp/htdocs/UTU-project/logica/functions.php';
-    ?>
+<body class="overflow-x-hidden">
+    
     <?php
         include 'header.php';
     ?>
-    <div id="separator"></div>
-    <main>
-        <div class="carrousel-container" id="promotions">
-            <button id="prevBtn">Previous</button>
-            <div id="imagen" class="carrousel-slide">
+    <main class="container">
+        <div id="swiper-container1" class="swiper">
+            <div class="swiper-wrapper" id="descuentos">
+                <div class="swiper-slide"><img src="../src/img/71WR45NFLgL.jpg" alt="" style="object-fit: fit" height="700"></div>
+                <div class="swiper-slide"><img src="../src/img/1366_2000.png" alt=""></div>
             </div>
-            <button id="nextBtn">Next</button>
+            <div class="swiper-pagination"></div>
         </div>
+
         <h2>Products</h2>
-        <div id="discounts">
-            <div id="products">
-    
-            </div>
+        <div id="swiper-container" class="swiper">
+            <div class="swiper-wrapper" id="products"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
+        
         <h2>Popular categories</h2>
-        <section id="popular-categories">
-            <article><img src="../src/img/11-mitos-electrodomesticos-hora-dejes-creerte-2157733.png" alt=""></article>
-            <article><img src="../src/img/1366_2000.png" alt=""></article>
-            <article><img src="../src/img/13934903_1648619525452720_2900498051237894535_n.png" alt=""></article>
-            <article><img src="../src/img/6a94926d20190a841f93b405eef7414a.png" alt=""></article>
-            <article><img src="../src/img/depositphotos_241907032-stock-photo-top-view-watches-lipstick-earrings.png" alt=""></article>
-            <article><img src="../src/img/herramientas-manuales-basicas-02-2022-07.png" alt=""></article>
-            <article><img src="../src/img/Jm3lXndQW_2000x1500__1.png" alt=""></article>
-            <article><img src="../src/img/Musique-2.png" alt=""></article>
-            <article><img src="../src/img/png-mobile-phone-png-icns-more-512.webp" alt=""></article>   
-            <article><img src="../src/img/Z5CCK4LQ44JIM6BWFUMIPN2SZI.png" alt=""></article>
+        <section id="popular-categories container row">
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>
+            <article class="col"><img src="" alt=""></article>   
+            <article class="col"><img src="" alt=""></article>
         </section>
     </main>
     <?php include 'footer.php'?>
     <script src="/UTU-project/interfaz/src/scripts/carrousel.js"></script>
-    <script src="/UTU-project/interfaz/src/scripts/shoppingCart.js"></script>
-    <script src="/UTU-project/interfaz/src/scripts/udateURL.js"></script>
-    <script src="/UTU-project/interfaz/src/scripts/showProducts.js"></script>
-    <script src="/UTU-project/interfaz/src/scripts/logout.js"></script>
-
+    <script type="module" src="/UTU-project/interfaz/src/scripts/products/openProduct.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/products/showProducts.js"></script>
+    <script src="/UTU-project/interfaz/src/scripts/finder.js"></script>
+<script src="/UTU-project/interfaz/src/scripts/udateURL.js"></script>
+<script src="/UTU-project/interfaz/src/scripts/usuario/logout.js"></script>
+  <script type="module" src="/UTU-project/interfaz/src/scripts/addProductCarrito.js"></script>
+  <script type="module" src="/UTU-project/interfaz/src/scripts/removeProductCarrito.js"></script>
+  <script type="module" src="/UTU-project/interfaz/src/scripts/showProductCarrito.js"></script>
+  <script type="module" src="/UTU-project/interfaz/src/scripts/showTotalPriceCarrito.js"></script>
+  <script type="module" src="/UTU-project/interfaz/src/scripts/usuario/insertHistory.js"></script>
+  <script src="/UTU-project/interfaz/src/scripts/buyCart.js"></script>
 </body>
 </html>
